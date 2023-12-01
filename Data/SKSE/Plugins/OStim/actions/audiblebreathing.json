@@ -1,0 +1,10 @@
+{
+	"actor":{
+		"moan": true,
+		"faction":{
+			"info": "OCR_AudibleBreathingFaction",
+			"mod": "OStimCommunityResource.esp",
+			"formid": "0x5BA9"
+		}
+	}
+}
