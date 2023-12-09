@@ -1,0 +1,71 @@
+{
+	"aliases":[
+		"boj",
+		"boobj",
+		"breastj",
+		"breastjob",
+		"titj",
+		"titjob"
+	],
+	"actor":{
+		"info": "the one with the boobs",
+		"stimulation":0.1,
+		"maxStimulation":50,
+		"fullStrip":true,
+		"moan": false,
+		"talk":true,
+		"requirements":[
+			"breast"
+		],
+		"strippingSlots":[
+			32,
+			46,
+			56
+		],
+		"faction":{
+			"info": "OStimBoobjobActorFaction",
+			"mod": "OStim.esp",
+			"formid": "0xE55"
+		},
+		"stringLists":{
+			"cum":[
+				"chest"
+			]
+		}
+	},
+	"target":{
+		"info": "the one with the penis",
+		"stimulation":0.8,
+		"fullStrip":true,
+		"moan":true,
+		"talk":true,
+		"requirements":[
+			"penis"
+		],
+		"faction":{
+			"info": "OStimBoobjobTargetFaction",
+			"mod": "OStim.esp",
+			"formid": "0xE56"
+		},
+		"strippingSlots":[
+			32,
+			49,
+			52,
+			53,
+			54
+		]
+	},
+	"performer":{
+		"faction":{
+			"info": "OStimBoobjobPerformerFaction",
+			"mod": "OStim.esp",
+			"formid": "0xE57"
+		},
+		"floats":{
+			"stamina":0.75
+		}
+	},
+	"tags":[
+		"sexual"
+	]
+}

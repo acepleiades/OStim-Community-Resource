@@ -1,0 +1,8 @@
+{
+	"target":{
+		"strippingSlots":[
+			30,
+            42
+		]
+	}
+}

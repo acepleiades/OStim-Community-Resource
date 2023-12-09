@@ -1,0 +1,57 @@
+{
+    "actionActors": [
+        "internalclimax"
+    ],
+    "female": {
+        "expression": {
+            "type": 1,
+            "baseValue": 100
+        },
+        "phonemes": [
+            {
+                "type": 1,
+                "baseValue": 20
+            },
+            {
+                "type": 5,
+                "baseValue": 50
+            }
+        ],
+        "modifiers": [
+            {
+                "type": 12,
+                "baseValue": 100
+            },
+            {
+                "type": 13,
+                "baseValue": 100
+            }
+        ]
+    },
+    "male": {
+        "expression": {
+            "type": 1,
+            "baseValue": 100
+        },
+        "phonemes": [
+            {
+                "type": 1,
+                "baseValue": 20
+            },
+            {
+                "type": 5,
+                "baseValue": 50
+            }
+        ],
+        "modifiers": [
+            {
+                "type": 12,
+                "baseValue": 100
+            },
+            {
+                "type": 13,
+                "baseValue": 100
+            }
+        ]
+    }
+}

@@ -1,0 +1,68 @@
+{
+	"aliases":[
+		"gropeballs",
+		"gropeballsack",
+		"gropetesticle",
+		"gropetesticles",
+		"gropingballs",
+		"gropingballsack",
+		"gropringtesticle",
+		"holdballs",
+		"holdballsack",
+		"holdingballs",
+		"holdingballsack",
+		"holdingtesticle",
+		"holdingtesticles",
+		"holdtesticle",
+		"holdtesticles"
+	],
+	"actor":{
+		"info": "the one with the hands",
+		"stimulation":0.1,
+		"maxStimulation":50,
+		"moan": false,
+		"talk":true,
+		"requirements":[
+			"hand"
+		],
+		"strippingSlots":[
+			33
+		],
+		"faction":{
+			"info": "OStimGropingTesticlesActorFaction",
+			"mod": "OStim.esp",
+			"formid": "0xE6E"
+		}
+	},
+	"target":{
+		"info": "the one with the penis",
+		"stimulation":0.4,
+		"maxStimulation":50,
+		"fullStrip":true,
+		"moan":true,
+		"talk":true,
+		"requirements":[
+			"testicles"
+		],
+		"strippingSlots":[
+			32,
+			49,
+			52,
+			53,
+			54
+		],
+		"faction":{
+			"info": "OStimGropingTesticlesTargetFaction",
+			"mod": "OStim.esp",
+			"formid": "0xE6F"
+		}
+	},
+	"performer":{
+		"floats":{
+			"stamina":0.5
+		}
+	},
+	"tags":[
+		"sexual"
+	]
+}

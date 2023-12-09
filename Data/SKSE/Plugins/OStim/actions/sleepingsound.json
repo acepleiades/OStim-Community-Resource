@@ -1,0 +1,10 @@
+{
+	"actor":{
+		"moan": true,
+		"faction":{
+			"info": "OCR_SleepingSoundFaction",
+			"mod": "OStimCommunityResource.esp",
+			"formid": "0xAAE4"
+		}
+	}
+}

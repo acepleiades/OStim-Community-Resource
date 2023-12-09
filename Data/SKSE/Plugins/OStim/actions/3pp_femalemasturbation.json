@@ -1,0 +1,41 @@
+{
+	"info": "femalemasturbation is for when actor and target are the same, if they are different use vaginalfingering",
+	"actor":{
+		"stimulation":0.0,
+		"requirements":[
+			"hand"
+		],
+		"strippingSlots":[
+			33
+		],
+		"faction":{
+			"info": "OStimFemaleMasturbationFaction",
+			"mod": "OStim.esp",
+			"formid": "0xE5E"
+		}
+	},
+	"target":{
+		"stimulation":0.9,
+		"fullStrip":true,
+		"moan":false,
+		"talk": false,
+		"requirements":[
+			"vagina"
+		],
+		"strippingSlots":[
+			32,
+			49,
+			52,
+			53,
+			54
+		]
+	},
+	"performer":{
+		"floats":{
+			"stamina":0.75
+		}
+	},
+	"tags":[
+		"sexual"
+	]
+}

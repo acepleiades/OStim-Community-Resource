@@ -1,0 +1,34 @@
+{
+	"actor":{
+		"stimulation":1.0,
+		"fullStrip":true,
+		"requirements":[
+			"penis"
+		],
+		"strippingSlots":[
+			32,
+			49,
+			52,
+			53,
+			54
+		]
+	},
+	"target":{
+		"stimulation":0.0,
+		"fullStrip":true,
+		"strippingSlots":[
+			32,
+			46,
+			56
+		],
+		"stringLists":{
+			"cum":[
+				"chest",
+				"neck"
+			]
+		}
+	},
+	"tags":[
+		"sexual"
+	]
+}

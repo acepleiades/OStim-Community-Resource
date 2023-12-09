@@ -1,0 +1,20 @@
+{
+	"actor":{
+		"muffled":true,
+		"expressionOverride":"tongue",
+		"requirements":[
+			"mouth"
+		],
+		"strippingSlots":[
+			30,
+			31,
+			44,
+			55
+		],
+		"stringLists":{
+			"cum":[
+				"mouth"
+			]
+		}
+	}
+}
