@@ -1,7 +1,7 @@
 {
 	"actor":{
 		"muffled":true,
-		"expressionOverride":"tongue",
+		"expressionOverride":"openmouth",
 		"requirements":[
 			"mouth"
 		],
