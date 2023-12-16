@@ -1,0 +1,36 @@
+{
+    "name": "OCR_MF_StandingConversationLoop",
+    "modPack": "OStim Community Resource",
+    "length": 15,
+    "navigations": [],
+    "speeds": [
+        {
+            "animation": "OCR_Int_MF_StandingConversationLoop"
+        }
+    ],
+    "noRandomSelection": true,
+    "actors": [
+        {
+            "type": "npc",
+            "intendedSex": "any",
+            "sosBend": 3,
+            "scaleHeight": 120.748,
+            "scale": 1.03,
+            "tags": [
+                "standing"
+            ],
+            "feetOnGround": true
+        },
+        {
+            "type": "npc",
+            "intendedSex": "any",
+            "scaleHeight": 120.748,
+            "scale": 1,
+            "tags": [
+                "standing"
+            ],
+            "feetOnGround": true
+        }
+    ],
+    "actions": []
+}

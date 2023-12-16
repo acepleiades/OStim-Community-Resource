@@ -1,0 +1,15 @@
+{
+    "scenes": [
+        {
+            "id": "OCR_FM_BasicIdle",
+            "duration": 1
+        },
+        {
+            "id": "OCR_FM_Kiss1"
+        },
+        {
+            "id": "OCR_FM_BasicIdle",
+            "duration": 1
+        }
+    ]
+}
