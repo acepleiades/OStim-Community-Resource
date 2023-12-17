@@ -5,9 +5,6 @@ The meshes and textures (files inside those respective folders) are used with pe
 
 # Meshes and Texture Credits
 Novelyst – Reverie<br>
-LogRaam & Gabriel Mailhot for Eyes of Beauty<br>
-docteure for Eyes of Beauty SSE<br>
-Eyes of Aber by Aberin<br>
-guidethisonekalaheria - Kala's Eyes<br>
+LogRaam or Gabriel Mailhot for Eyes of Beauty<br>
 Kalilies - KS Hairdos SSE<br>
 lthot - Brows SSE
