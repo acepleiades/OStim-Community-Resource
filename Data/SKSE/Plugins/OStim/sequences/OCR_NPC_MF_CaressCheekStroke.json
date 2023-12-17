@@ -9,7 +9,7 @@
         },
         {
             "id": "OCR_MF_BasicIdle",
-            "duration": 1
+            "duration": 0.5
         }
     ]
 }
