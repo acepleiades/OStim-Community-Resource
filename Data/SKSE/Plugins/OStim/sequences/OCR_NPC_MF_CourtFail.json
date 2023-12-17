@@ -1,0 +1,15 @@
+{
+    "scenes": [
+        {
+            "id": "OCR_MF_BasicIdle",
+            "duration": 1
+        },
+        {
+            "id": "OCR_NPC_MF_CourtFail"
+        },
+        {
+            "id": "OCR_MF_BasicIdle",
+            "duration": 1
+        }
+    ]
+}

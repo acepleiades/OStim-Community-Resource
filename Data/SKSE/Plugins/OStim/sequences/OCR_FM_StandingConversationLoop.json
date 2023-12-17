@@ -1,7 +1,8 @@
 {
     "scenes": [
         {
-            "id": "OCR_FM_StandingConversationLoop"
+            "id": "OCR_FM_StandingConversationLoop",
+            "duration": 15
         }
     ]
 }

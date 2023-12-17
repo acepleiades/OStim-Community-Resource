@@ -13,9 +13,8 @@
         {
             "type": "npc",
             "intendedSex": "any",
-            "sosBend": 3,
             "scaleHeight": 120.748,
-            "scale": 1.03,
+            "scale": 1,
             "tags": [
                 "standing"
             ],
@@ -23,14 +22,25 @@
         },
         {
             "type": "npc",
-            "intendedSex": "female",
+            "intendedSex": "any",
             "scaleHeight": 120.748,
-            "scale": 1,
+            "scale": 1.03,
             "tags": [
                 "standing"
             ],
             "feetOnGround": true
         }
     ],
-    "actions": []
+    "actions": [
+        {
+            "type": "undress_head_minus_circlet_target",
+            "actor": 0,
+            "target": 0
+        },
+        {
+            "type": "undress_head_minus_circlet_target",
+            "actor": 1,
+            "target": 1
+        }
+    ]
 }

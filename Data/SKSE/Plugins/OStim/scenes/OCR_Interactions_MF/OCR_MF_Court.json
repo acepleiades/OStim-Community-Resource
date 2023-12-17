@@ -13,8 +13,7 @@
     "actors": [
         {
             "type": "npc",
-            "intendedSex": "male",
-            "sosBend": 6,
+            "intendedSex": "any",
             "scaleHeight": 120.748,
             "scale": 1.03,
             "tags": [
@@ -33,5 +32,16 @@
             "feetOnGround": true
         }
     ],
-    "actions": []
+    "actions": [
+        {
+            "type": "undress_head_minus_circlet_target",
+            "actor": 0,
+            "target": 0
+        },
+        {
+            "type": "undress_head_minus_circlet_target",
+            "actor": 1,
+            "target": 1
+        }
+    ]
 }

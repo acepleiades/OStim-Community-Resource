@@ -1,0 +1,47 @@
+{
+    "name": "OCR_NPC_FM_Court",
+    "modPack": "OStim Community Resource",
+    "length": 5.7,
+    "destination": "OCR_FM_BasicIdle",
+    "navigations": [],
+    "speeds": [
+        {
+            "animation": "OCR_NPCInt_FM_Court"
+        }
+    ],
+    "noRandomSelection": true,
+    "actors": [
+        {
+            "type": "npc",
+            "intendedSex": "any",
+            "scaleHeight": 120.748,
+            "scale": 1,
+            "tags": [
+                "standing"
+            ],
+            "feetOnGround": true
+        },
+        {
+            "type": "npc",
+            "intendedSex": "any",
+            "scaleHeight": 120.748,
+            "scale": 1.03,
+            "tags": [
+                "standing"
+            ],
+            "feetOnGround": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "undress_head_minus_circlet_target",
+            "actor": 0,
+            "target": 0
+        },
+        {
+            "type": "undress_head_minus_circlet_target",
+            "actor": 1,
+            "target": 1
+        }
+    ]
+}
