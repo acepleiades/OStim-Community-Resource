@@ -20,6 +20,24 @@ b -a,Tn OCR_Int_MF_CaressFail_0 ..\..\..\..\OCR_animations\12.2023\Male_Female\M
 b -a,Tn OCR_Int_MF_CaressFail_1 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_CaressFail\OCR_Int_MF_CaressFail_1.hkx
 b -a,Tn OCR_Int_MF_Kiss1_0 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_Kiss1\OCR_Int_MF_Kiss1_0.hkx
 b -a,Tn OCR_Int_MF_Kiss1_1 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_Kiss1\OCR_Int_MF_Kiss1_1.hkx
+b -a,Tn OCR_NPCInt_MF_Chatter_0 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_Chatter\OCR_NPCInt_MF_Chatter_0.hkx
+b -a,Tn OCR_NPCInt_MF_Chatter_1 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_Chatter\OCR_NPCInt_MF_Chatter_1.hkx
+b -a,Tn OCR_NPCInt_MF_ChatterFail_0 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_ChatterFail\OCR_NPCInt_MF_ChatterFail_0.hkx
+b -a,Tn OCR_NPCInt_MF_ChatterFail_1 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_ChatterFail\OCR_NPCInt_MF_ChatterFail_1.hkx
+b -a,Tn OCR_NPCInt_MF_Court_0 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_Court\OCR_NPCInt_MF_Court_0.hkx
+b -a,Tn OCR_NPCInt_MF_Court_1 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_Court\OCR_NPCInt_MF_Court_1.hkx
+b -a,Tn OCR_NPCInt_MF_CourtFail_0 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_CourtFail\OCR_NPCInt_MF_CourtFail_0.hkx
+b -a,Tn OCR_NPCInt_MF_CourtFail_1 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_CourtFail\OCR_NPCInt_MF_CourtFail_1.hkx
+b -a,Tn OCR_NPCInt_MF_CaressHug_0 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_CaressHug\OCR_NPCInt_MF_CaressHug_0.hkx
+b -a,Tn OCR_NPCInt_MF_CaressHug_1 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_CaressHug\OCR_NPCInt_MF_CaressHug_1.hkx
+b -a,Tn OCR_NPCInt_MF_CaressHoldHands_0 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_CaressHoldHands\OCR_NPCInt_MF_CaressHoldHands_0.hkx
+b -a,Tn OCR_NPCInt_MF_CaressHoldHands_1 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_CaressHoldHands\OCR_NPCInt_MF_CaressHoldHands_1.hkx
+b -a,Tn OCR_NPCInt_MF_CaressCheekStroke_0 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_CaressCheekStroke\OCR_NPCInt_MF_CaressCheekStroke_0.hkx
+b -a,Tn OCR_NPCInt_MF_CaressCheekStroke_1 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_CaressCheekStroke\OCR_NPCInt_MF_CaressCheekStroke_1.hkx
+b -a,Tn OCR_NPCInt_MF_CaressFail_0 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_CaressFail\OCR_NPCInt_MF_CaressFail_0.hkx
+b -a,Tn OCR_NPCInt_MF_CaressFail_1 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_CaressFail\OCR_NPCInt_MF_CaressFail_1.hkx
+b -a,Tn OCR_NPCInt_MF_Kiss1_0 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_Kiss1\OCR_NPCInt_MF_Kiss1_0.hkx
+b -a,Tn OCR_NPCInt_MF_Kiss1_1 ..\..\..\..\OCR_animations\12.2023\Male_Female\MF_Kiss1\OCR_NPCInt_MF_Kiss1_1.hkx
 
 b -Tn OCR_Int_FM_BasicIdle_0 ..\..\..\..\OCR_animations\12.2023\Female_Male\FM_BasicIdle\OCR_Int_FM_BasicIdle_0.hkx
 b -Tn OCR_Int_FM_BasicIdle_1 ..\..\..\..\OCR_animations\12.2023\Female_Male\FM_BasicIdle\OCR_Int_FM_BasicIdle_1.hkx

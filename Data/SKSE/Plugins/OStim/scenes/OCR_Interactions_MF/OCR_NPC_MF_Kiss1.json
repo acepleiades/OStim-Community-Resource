@@ -1,0 +1,37 @@
+{
+    "name": "OCR_NPC_MF_Kiss1",
+    "modPack": "OStim Community Resource",
+    "length": 4.7,
+    "destination": "OCR_MF_BasicIdle",
+    "navigations": [],
+    "speeds": [
+        {
+            "animation": "OCR_NPCInt_MF_Kiss1"
+        }
+    ],
+    "noRandomSelection": true,
+    "actors": [
+        {
+            "type": "npc",
+            "intendedSex": "male",
+            "sosBend": 6,
+            "scaleHeight": 120.748,
+            "scale": 1.03,
+            "tags": [
+                "standing"
+            ],
+            "feetOnGround": true
+        },
+        {
+            "type": "npc",
+            "intendedSex": "any",
+            "scaleHeight": 120.748,
+            "scale": 1,
+            "tags": [
+                "standing"
+            ],
+            "feetOnGround": true
+        }
+    ],
+    "actions": []
+}

@@ -23,7 +23,7 @@
         },
         {
             "type": "npc",
-            "intendedSex": "any",
+            "intendedSex": "female",
             "scaleHeight": 120.748,
             "scale": 1,
             "tags": [
