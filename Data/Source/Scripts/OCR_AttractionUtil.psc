@@ -86,7 +86,7 @@ Class Property SoldierSonsSkyrimNotGuard  Auto
 function GetAttraction(actor actor1)
     float attraction = CalculateNPCAttraction(actor1)
     OCR_CurrentAttraction.SetValue(attraction)
-    MiscUtil.PrintConsole("GetNPCAttraction: calculated attraction: " + attraction)
+    MiscUtil.PrintConsole("GetNPCAttraction: calculated attraction is " + attraction)
 endFunction
 
 float Function CalculateNPCAttraction(actor actor1)
@@ -98,6 +98,7 @@ float Function CalculateNPCAttraction(actor actor1)
         InitialAttractivenessQuestionnaire()
         AttractivenessBase = OCR_AttractivenessBase.GetValue()
     endif
+    MiscUtil.PrintConsole("GetNPCAttraction: player's base attractiveness is " + AttractivenessBase)
     MiscUtil.PrintConsole("GetNPCAttraction: passed step one.")
     
     ;Initializations
@@ -113,48 +114,40 @@ float Function CalculateNPCAttraction(actor actor1)
     if actor1Race == ArgonianRace
         AttractivenessBonus_Race += playerref.GetActorValue("Lockpicking") / 4  ; Major skill
         AttractivenessBonus_Race += (playerref.GetActorValue("LightArmor") + playerref.GetActorValue("Alteration") + playerref.GetActorValue("Pickpocket") + playerref.GetActorValue("Restoration") + playerref.GetActorValue("Sneak")) / 20  ; Minor skills
-        MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is ArgonianRace.")
     elseif actor1Race == BretonRace
         AttractivenessBonus_Race += playerref.GetActorValue("Conjuration") / 4  ; Major skill
         AttractivenessBonus_Race += (playerref.GetActorValue("Speechcraft") + playerref.GetActorValue("Alchemy") + playerref.GetActorValue("Illusion") + playerref.GetActorValue("Restoration") + playerref.GetActorValue("Alteration")) / 20  ; Minor skills
-        MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is BretonRace.")
     elseif actor1Race == DarkElfRace
         AttractivenessBonus_Race += playerref.GetActorValue("Destruction") / 4  ; Major skill
         AttractivenessBonus_Race += (playerref.GetActorValue("LightArmor") + playerref.GetActorValue("Sneak") + playerref.GetActorValue("Alchemy") + playerref.GetActorValue("Illusion") + playerref.GetActorValue("Alteration")) / 20  ; Minor skills
-        MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is DarkElfRace.")
     elseif actor1Race == HighElfRace
         AttractivenessBonus_Race += playerref.GetActorValue("Illusion") / 4  ; Major skill
         AttractivenessBonus_Race += (playerref.GetActorValue("Alteration") + playerref.GetActorValue("Conjuration") + playerref.GetActorValue("Destruction") + playerref.GetActorValue("Enchanting") + playerref.GetActorValue("Restoration")) / 20  ; Minor skills
-        MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is HighElfRace.")
     elseif actor1Race == ImperialRace
         AttractivenessBonus_Race += playerref.GetActorValue("Restoration") / 4  ; Major skill
         AttractivenessBonus_Race += (playerref.GetActorValue("HeavyArmor") + playerref.GetActorValue("Block") + playerref.GetActorValue("OneHanded") + playerref.GetActorValue("Destruction") + playerref.GetActorValue("Enchanting")) / 20  ; Minor skills
-        MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is ImperialRace.")
     elseif actor1Race == KhajiitRace
         AttractivenessBonus_Race += playerref.GetActorValue("Sneak") / 4  ; Major skill
         AttractivenessBonus_Race += (playerref.GetActorValue("OneHanded") + playerref.GetActorValue("Marksman") + playerref.GetActorValue("Lockpicking") + playerref.GetActorValue("Pickpocket") + playerref.GetActorValue("Alchemy")) / 20  ; Minor skills
-        MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is KhajiitRace.")
     elseif actor1Race == NordRace
         AttractivenessBonus_Race += playerref.GetActorValue("TwoHanded") / 4  ; Major skill
         AttractivenessBonus_Race += (playerref.GetActorValue("Smithing") + playerref.GetActorValue("Block") + playerref.GetActorValue("OneHanded") + playerref.GetActorValue("LightArmor") + playerref.GetActorValue("Speechcraft")) / 20  ; Minor skills
-        MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is NordRace.")
     elseif actor1Race == OrcRace
         AttractivenessBonus_Race += playerref.GetActorValue("HeavyArmor") / 4  ; Major skill
         AttractivenessBonus_Race += (playerref.GetActorValue("Smithing") + playerref.GetActorValue("Block") + playerref.GetActorValue("TwoHanded") + playerref.GetActorValue("OneHanded") + playerref.GetActorValue("Enchanting")) / 20  ; Minor skills
-        MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is OrcRace.")
     elseif actor1Race == RedguardRace
         AttractivenessBonus_Race += playerref.GetActorValue("OneHanded") / 4  ; Major skill
         AttractivenessBonus_Race += (playerref.GetActorValue("Smithing") + playerref.GetActorValue("TwoHanded") + playerref.GetActorValue("Marksman") + playerref.GetActorValue("Destruction") + playerref.GetActorValue("Alteration")) / 20  ; Minor skills
-        MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is RedguardRace.")
     elseif actor1Race == WoodElfRace
         AttractivenessBonus_Race += playerref.GetActorValue("Marksman") / 4  ; Major skill
         AttractivenessBonus_Race += (playerref.GetActorValue("Alchemy") + playerref.GetActorValue("LightArmor") + playerref.GetActorValue("Lockpicking") + playerref.GetActorValue("Pickpocket") + playerref.GetActorValue("Sneak")) / 20  ; Minor skills
-        MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is WoodElfRace.")
     else  ; For every other race
         int playerLevel = playerref.GetLevel()
         AttractivenessBonus_Race += playerLevel / 2.0  ; Adjust the divisor as needed for game balance
         MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is not playable. Using player level to calculate this Attractiveness bonus.")
     endif
+    MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is " + actor1Race)
+    MiscUtil.PrintConsole("GetNPCAttraction: AttractivenessBonus_Race is " + AttractivenessBonus_Race)
     MiscUtil.PrintConsole("GetNPCAttraction: passed step two.")
 
     ;Step three: calculate the PC's Attractiveness bonus from skills.
@@ -164,6 +157,7 @@ float Function CalculateNPCAttraction(actor actor1)
         GiveRandomEnthusiastTrait(actor1)
         AttractivenessBonus_Skills = CalculateSkillAttractivenessBonus(actor1)
     endif
+    MiscUtil.PrintConsole("GetNPCAttraction: AttractivenessBonus_Skills is" + AttractivenessBonus_Skills)
     MiscUtil.PrintConsole("GetNPCAttraction: passed step three.")
 
     ;Step four: take into account the PC's accomplishments.
@@ -172,27 +166,27 @@ float Function CalculateNPCAttraction(actor actor1)
         ; High Morality bonuses
         MiscUtil.PrintConsole("GetNPCAttraction: NPC is has high Morality and likes a virtuous character.")
         if Favor250.IsObjectiveCompleted(15) || Favor252.IsObjectiveCompleted(15) || Favor253.IsObjectiveCompleted(15) || Favor254.IsObjectiveCompleted(15) || Favor255.IsObjectiveCompleted(15) || Favor256.IsObjectiveCompleted(15) || Favor257.IsObjectiveCompleted(15) || Favor258.IsObjectiveCompleted(15) || FreeformRiftenThane.IsObjectiveCompleted(30)
-            MiscUtil.PrintConsole("GetNPCAttraction: Player character is Thane.")
+            MiscUtil.PrintConsole("GetNPCAttraction: Player character is Thane (+10 attraction).")
             AttractivenessBonus_Fame = 10
         endif
         if MG08.IsCompleted() || C06.IsCompleted()
-            MiscUtil.PrintConsole("GetNPCAttraction: Player character is the leader of a renowned faction.")
+            MiscUtil.PrintConsole("GetNPCAttraction: Player character is the leader of a renowned faction (+15 attraction).")
             AttractivenessBonus_FactionLeader = 15
         endif
     else
         ; Low Morality bonuses
         MiscUtil.PrintConsole("GetNPCAttraction: NPC is has low Morality and likes a vicious character.")
         if CrimeFactionEastmarch.GetCrimeGold() > 499 || CrimeFactionFalkreath.GetCrimeGold() > 499 || CrimeFactionHaafingar.GetCrimeGold() > 499 || CrimeFactionHjaalmarch.GetCrimeGold() > 499 || CrimeFactionPale.GetCrimeGold() > 499 || CrimeFactionReach.GetCrimeGold() > 499 || CrimeFactionRift.GetCrimeGold() > 499 || CrimeFactionWhiterun.GetCrimeGold() > 499 || CrimeFactionWinterhold.GetCrimeGold() > 499
-            MiscUtil.PrintConsole("GetNPCAttraction: Player is a notorious criminal.")
+            MiscUtil.PrintConsole("GetNPCAttraction: Player is a notorious criminal (+10 attraction).")
             AttractivenessBonus_Fame = 10
         endif
         if DB11.IsCompleted() || TGLeadership.IsCompleted()
-            MiscUtil.PrintConsole("GetNPCAttraction: Player character is the leader of an infamous faction.")
+            MiscUtil.PrintConsole("GetNPCAttraction: Player character is the leader of an infamous faction (+15 attraction).")
             AttractivenessBonus_FactionLeader = 15
         endif
         if (PlayerRef.Haskeyword(vampire)) || playerref.HasSpell(WerewolfChange)
             AttractivenessBonus_Monster = 15
-            MiscUtil.PrintConsole("GetNPCAttraction: Player character is a vampire or werewolf.")
+            MiscUtil.PrintConsole("GetNPCAttraction: Player character is a vampire or werewolf (+15 attraction).")
         endif
     endif
     MiscUtil.PrintConsole("GetNPCAttraction: passed step four.")
@@ -200,18 +194,18 @@ float Function CalculateNPCAttraction(actor actor1)
     ;Step five: a bonus in all cases if PC is the savior of Tamriel.
     if MQ305.IsCompleted()
         AttractivenessBonus_MainQuest = 30
-        MiscUtil.PrintConsole("GetNPCAttraction: Player character is the savior of Tamriel.")
+        MiscUtil.PrintConsole("GetNPCAttraction: Player character is the savior of Tamriel (+30 attraction).")
     endif
     MiscUtil.PrintConsole("GetNPCAttraction: passed step five.")
 
     ;Step six: sum up all Attractiveness values.
     float TotalAttractiveness = AttractivenessBase + AttractivenessBonus_Race + AttractivenessBonus_Skills + AttractivenessBonus_Fame + AttractivenessBonus_FactionLeader + AttractivenessBonus_Monster + AttractivenessBonus_MainQuest
-    MiscUtil.PrintConsole("GetNPCAttraction: PC's TotalAttractiveness: " + TotalAttractiveness)
+    MiscUtil.PrintConsole("GetNPCAttraction: PC's TotalAttractiveness is " + TotalAttractiveness)
     MiscUtil.PrintConsole("GetNPCAttraction: passed step six.")
 
     ; Step seven: get the attraction threshold based on NPC's class and sex
     int attractionThreshold = GetAttractivenessThreshold(actor1)
-    MiscUtil.PrintConsole("GetNPCAttraction: NPC's attractionThreshold: " + attractionThreshold)
+    MiscUtil.PrintConsole("GetNPCAttraction: NPC's attractionThreshold is " + attractionThreshold)
     MiscUtil.PrintConsole("GetNPCAttraction: passed step seven.")
 
     ; Return the ratio of Total Attractiveness to attractionThreshold
