@@ -157,7 +157,7 @@ float Function CalculateNPCAttraction(actor actor1)
         GiveRandomEnthusiastTrait(actor1)
         AttractivenessBonus_Skills = CalculateSkillAttractivenessBonus(actor1)
     endif
-    MiscUtil.PrintConsole("GetNPCAttraction: AttractivenessBonus_Skills is" + AttractivenessBonus_Skills)
+    MiscUtil.PrintConsole("GetNPCAttraction: AttractivenessBonus_Skills is " + AttractivenessBonus_Skills)
     MiscUtil.PrintConsole("GetNPCAttraction: passed step three.")
 
     ;Step four: take into account the PC's accomplishments.
@@ -200,7 +200,7 @@ float Function CalculateNPCAttraction(actor actor1)
 
     ;Step six: sum up all Attractiveness values.
     float TotalAttractiveness = AttractivenessBase + AttractivenessBonus_Race + AttractivenessBonus_Skills + AttractivenessBonus_Fame + AttractivenessBonus_FactionLeader + AttractivenessBonus_Monster + AttractivenessBonus_MainQuest
-    MiscUtil.PrintConsole("GetNPCAttraction: PC's TotalAttractiveness is " + TotalAttractiveness)
+    MiscUtil.PrintConsole("GetNPCAttraction: PC's total attractiveness for this NPC is " + TotalAttractiveness)
     MiscUtil.PrintConsole("GetNPCAttraction: passed step six.")
 
     ; Step seven: get the attraction threshold based on NPC's class and sex
