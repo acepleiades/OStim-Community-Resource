@@ -84,8 +84,9 @@ Class Property SoldierImperialNotGuard  Auto
 Class Property SoldierSonsSkyrimNotGuard  Auto  
 
 function GetAttraction(actor actor1)
-	float attraction = CalculateNPCAttraction(actor1)
-	OCR_CurrentAttraction.SetValue(attraction)
+    float attraction = CalculateNPCAttraction(actor1)
+    OCR_CurrentAttraction.SetValue(attraction)
+    MiscUtil.PrintConsole("GetNPCAttraction: calculated attraction: " + attraction)
 endFunction
 
 float Function CalculateNPCAttraction(actor actor1)
@@ -205,10 +206,12 @@ float Function CalculateNPCAttraction(actor actor1)
 
     ;Step six: sum up all Attractiveness values.
     float TotalAttractiveness = AttractivenessBase + AttractivenessBonus_Race + AttractivenessBonus_Skills + AttractivenessBonus_Fame + AttractivenessBonus_FactionLeader + AttractivenessBonus_Monster + AttractivenessBonus_MainQuest
+    MiscUtil.PrintConsole("GetNPCAttraction: PC's TotalAttractiveness: " + TotalAttractiveness)
     MiscUtil.PrintConsole("GetNPCAttraction: passed step six.")
 
     ; Step seven: get the attraction threshold based on NPC's class and sex
     int attractionThreshold = GetAttractivenessThreshold(actor1)
+    MiscUtil.PrintConsole("GetNPCAttraction: NPC's attractionThreshold: " + attractionThreshold)
     MiscUtil.PrintConsole("GetNPCAttraction: passed step seven.")
 
     ; Return the ratio of Total Attractiveness to attractionThreshold
@@ -218,6 +221,7 @@ float Function CalculateNPCAttraction(actor actor1)
     else
         return 0  ; or some other default value if attractionThreshold is zero
     endif
+
 EndFunction
 
 ;Helper functions
@@ -381,17 +385,17 @@ EndFunction
 
 Function GiveRandomEnthusiastTrait(Actor actor1)
     MiscUtil.PrintConsole("GetNPCAttraction: NPC does not have an Enthusiast trait. Assigning a random trait...")
-	int r = Utility.RandomInt(1, 3)
-	if r == 1
-		actor1.AddToFaction(OCR_Trait_EnthusiastArcane)
+    int r = Utility.RandomInt(1, 3)
+    if r == 1
+        actor1.AddToFaction(OCR_Trait_EnthusiastArcane)
         MiscUtil.PrintConsole("GetNPCAttraction: Assigned OCR_Trait_EnthusiastArcane")
-	elseIf r== 2
-		actor1.AddToFaction(OCR_Trait_EnthusiastEscapade)
+    elseIf r== 2
+        actor1.AddToFaction(OCR_Trait_EnthusiastEscapade)
         MiscUtil.PrintConsole("GetNPCAttraction: Assigned OCR_Trait_EnthusiastEscapade")
-	else
-		actor1.AddToFaction(OCR_Trait_EnthusiastMartial)
+    else
+        actor1.AddToFaction(OCR_Trait_EnthusiastMartial)
         MiscUtil.PrintConsole("GetNPCAttraction: Assigned OCR_Trait_EnthusiastMartial")
-	endif
+    endif
 endFunction
 
 float Function GetHighestSkill(float skill1, float skill2, float skill3, float skill4, float skill5, float skill6)
