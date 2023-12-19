@@ -320,7 +320,7 @@ int Function GetAttractivenessThreshold(Actor actor1)
         endIf
     else
         ; Assign NPC to the correct social class faction
-        MiscUtil.PrintConsole("GetNPCAttraction: NPC does not have an IOSS social class. Assigning...")
+        MiscUtil.PrintConsole("GetNPCAttraction: NPC does not have an OCR social class. Assigning...")
         if (actor1.GetFactionRank(FavorJobsBeggarsFaction) >= -1) || (actor1.GetFactionRank(FavorJobsDrunksFaction) >= -1) || (actor1.GetFactionRank(JobLumberjackFaction) >= -1) || (actor1.GetFactionRank(JobMinerFaction) >= -1)
             MiscUtil.PrintConsole("GetNPCAttraction: Assigned social class OCR_SocialClass_CitizenLowest")
             actor1.AddToFaction(OCR_SocialClass_CitizenLowest)
@@ -420,15 +420,15 @@ float Function CalculateSkillAttractivenessBonus(Actor actor1)
     float highestMageSkill = GetHighestSkill(playerref.GetActorValue("Alteration"), playerref.GetActorValue("Conjuration"), playerref.GetActorValue("Destruction"), playerref.GetActorValue("Illusion"), playerref.GetActorValue("Restoration"), playerref.GetActorValue("Enchanting"))
 
     if actor1.IsInFaction(OCR_Trait_EnthusiastArcane)
-        if highestMageSkill > 25
+        if highestMageSkill > 30
             bonus += highestMageSkill / 5
         endIf
     elseIf actor1.IsInFaction(OCR_Trait_EnthusiastEscapade)
-        if highestThiefSkill > 25
+        if highestThiefSkill > 30
             bonus += highestThiefSkill / 5
         endIf
     elseIf actor1.IsInFaction(OCR_Trait_EnthusiastMartial)
-        if highestWarriorSkill > 25
+        if highestWarriorSkill > 30
             bonus += highestWarriorSkill / 5
         endIf
     endIf
