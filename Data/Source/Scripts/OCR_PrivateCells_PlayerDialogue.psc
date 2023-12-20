@@ -6,5 +6,5 @@ ObjectReference Property OCR_XMarker_Return  Auto
 
 function PlayerDialogue_EndVisit()
     playerref.MoveTo(OCR_XMarker_Return)
-    Util.EndVisit()
+    ;Util.EndVisit()
 endfunction

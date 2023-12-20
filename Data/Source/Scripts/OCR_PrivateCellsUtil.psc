@@ -33,6 +33,7 @@ ReferenceAlias Property AliasLover7  Auto
 ReferenceAlias Property AliasLover8  Auto
 ReferenceAlias Property AliasLover9  Auto
 ReferenceAlias Property InvitedNPC  Auto
+Faction Property OCR_Lover_AcceptsMultiplePartnersFaction Auto
 
 function GoToPrivateCell_Camp(actor actor1)
     ;Start OCR_PrivateCells_PlayerDialogue, which gives a dialogue option for ending the visit
@@ -62,7 +63,7 @@ function GoToPrivateCell_Camp(actor actor1)
     OCR_PrivateCells_LoverAliases.Start()
     InvitedNPC.ForceRefTo(actor1)
     ;Inviting additional lovers functionality. Checks if the additional lovers aliases have been filled.
-    if (AliasFollower0.GetReference())
+    if AliasFollower0.GetActorReference().IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
         int iChoice0 = OCR_GoToPrivateCell_LoversMSG.Show()
         if iChoice0 == 0 ;"Yes"
             ;Take lovers with you
@@ -92,6 +93,7 @@ function GoToPrivateCell_Follow(actor actor1)
 endfunction
 
 function EndVisit()
+	OCR_PrivateCells_EndVisit.Stop()
 	OCR_PrivateCells_PlayerDialogueQST.Stop()
 	InvitedNPC.GetActorReference().MoveTo(OCR_XMarker_Return)
 	AliasFollower0.GetActorReference().MoveTo(OCR_XMarker_Return)
