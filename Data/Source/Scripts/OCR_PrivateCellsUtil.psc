@@ -1,6 +1,8 @@
 Scriptname OCR_PrivateCellsUtil extends Quest  
 
 Actor Property PlayerRef Auto
+Message Property OCR_GoToPrivateCell_FollowersMSG  Auto
+Message Property OCR_GoToPrivateCell_LoversMSG  Auto
 ObjectReference Property OCR_XMarker_NPC_Camp  Auto
 ObjectReference Property OCR_XMarker_NPC_Inn  Auto
 ObjectReference Property OCR_XMarker_Player_Camp  Auto
@@ -9,6 +11,7 @@ ObjectReference Property OCR_XMarker_Return  Auto
 Quest Property OCR_PrivateCells_EndVisit  Auto
 Quest Property OCR_PrivateCells_FollowerAliases  Auto
 Quest Property OCR_PrivateCells_LoverAliases  Auto
+Quest Property OCR_PrivateCells_PlayerDialogueQST  Auto
 ReferenceAlias Property AliasFollower0  Auto
 ReferenceAlias Property AliasFollower1  Auto
 ReferenceAlias Property AliasFollower2  Auto
@@ -30,15 +33,15 @@ ReferenceAlias Property AliasLover7  Auto
 ReferenceAlias Property AliasLover8  Auto
 ReferenceAlias Property AliasLover9  Auto
 ReferenceAlias Property InvitedNPC  Auto
-Message Property OCR_GoToPrivateCell_FollowersMSG  Auto
-Message Property OCR_GoToPrivateCell_LoversMSG  Auto
 
 function GoToPrivateCell_Camp(actor actor1)
+    ;Start OCR_PrivateCells_PlayerDialogue, which gives a dialogue option for ending the visit
+    OCR_PrivateCells_PlayerDialogueQST.Start()
     ;Move the return marker to the player
     OCR_XMarker_Return.MoveTo(playerref)
     ;Inviting followers functionality. Checks if the follower aliases have been filled.
     OCR_PrivateCells_FollowerAliases.Start()
-    if AliasFollower0.GetActorReference()
+    if (AliasFollower0.GetReference())
         int iChoice0 = OCR_GoToPrivateCell_FollowersMSG.Show()
         if iChoice0 == 0 ;"Yes"
             ;Take followers with you
@@ -59,7 +62,7 @@ function GoToPrivateCell_Camp(actor actor1)
     OCR_PrivateCells_LoverAliases.Start()
     InvitedNPC.ForceRefTo(actor1)
     ;Inviting additional lovers functionality. Checks if the additional lovers aliases have been filled.
-    if AliasFollower0.GetActorReference()
+    if (AliasFollower0.GetReference())
         int iChoice0 = OCR_GoToPrivateCell_LoversMSG.Show()
         if iChoice0 == 0 ;"Yes"
             ;Take lovers with you
@@ -89,6 +92,7 @@ function GoToPrivateCell_Follow(actor actor1)
 endfunction
 
 function EndVisit()
+	OCR_PrivateCells_PlayerDialogueQST.Stop()
 	InvitedNPC.GetActorReference().MoveTo(OCR_XMarker_Return)
 	AliasFollower0.GetActorReference().MoveTo(OCR_XMarker_Return)
 	AliasFollower1.GetActorReference().MoveTo(OCR_XMarker_Return)
