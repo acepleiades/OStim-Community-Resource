@@ -5,8 +5,6 @@ Scriptname QF_OCR_PrivateCells_EndVisit_0502AE18 Extends Quest Hidden
 ;BEGIN FRAGMENT Fragment_0
 Function Fragment_0()
 ;BEGIN CODE
-Debug.Trace("OCR_PrivateCells_EndVisit started. Attempting to end visit.")
-Debug.Notification("OCR_PrivateCells_EndVisit started. Attempting to end visit.")
 Util.EndVisit()
 ;END CODE
 EndFunction
