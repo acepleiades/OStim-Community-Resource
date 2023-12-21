@@ -42,7 +42,7 @@ function GoToPrivateCell_Camp(actor actor1)
     OCR_PrivateCells_PlayerDialogueQST.Start()
     ;Move the return marker to the player
     OCR_XMarker_Return.MoveTo(playerref)
-    ;Inviting followers functionality. Checks if the follower aliases have been filled. This appears to always return true, though.
+    ;Inviting followers functionality. Checks if the follower aliases have been filled. This function is aborted if AliasFollower0.GetActorReference() returns none (in other words, is empty)
     OCR_PrivateCells_FollowerAliases.Start()
     if AliasFollower0.GetActorReference().IsInFaction(OCR_PrivateCellVisitorFaction)
         int iChoice0 = OCR_GoToPrivateCell_FollowersMSG.Show()
@@ -99,7 +99,7 @@ function GoToPrivateCell_Inn(actor actor1)
     OCR_PrivateCells_PlayerDialogueQST.Start()
     ;Move the return marker to the player
     OCR_XMarker_Return.MoveTo(playerref)
-    ;Inviting followers functionality. Checks if the follower aliases have been filled. This appears to always return true, though.
+    ;Inviting followers functionality. Checks if the follower aliases have been filled. This function is aborted if AliasFollower0.GetActorReference() returns none (in other words, is empty)
     OCR_PrivateCells_FollowerAliases.Start()
     if AliasFollower0.GetActorReference().IsInFaction(OCR_PrivateCellVisitorFaction)
         int iChoice0 = OCR_GoToPrivateCell_FollowersMSG.Show()
