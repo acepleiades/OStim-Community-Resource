@@ -12,8 +12,6 @@ Function PrivateCell_SetFollower(actor actor1, bool setFollower)
         if actor1.IsPlayerTeammate()
             Debug.Notification("This character is already following you.")
         elseif AliasFollowing0.GetActorReference() != actor1 && AliasFollowing1.GetActorReference() != actor1 && AliasFollowing2.GetActorReference() != actor1 && AliasFollowing3.GetActorReference() != actor1 && AliasFollowing4.GetActorReference() != actor1
-            ;Start OCR_PrivateCells_PlayerDialogueQST, which gives a dialogue option for ending the visit
-            OCR_PrivateCells_PlayerDialogueQST.Start()
             actor1.SetPlayerTeammate(true)
             AliasFollowing0.ForceRefIfEmpty(actor1)
             AliasFollowing1.ForceRefIfEmpty(actor1)
@@ -40,7 +38,5 @@ Function PrivateCell_SetFollower(actor actor1, bool setFollower)
             actor1.SetPlayerTeammate(false)
             AliasFollowing4.Clear()
         endif
-        ;If we can figure out a way to check if all aliases are empty, we should stop OCR_PrivateCells_PlayerDialogueQST. Until then, it'll have to remain running
-        ;OCR_PrivateCells_PlayerDialogueQST.Stop()
     endif
 EndFunction
