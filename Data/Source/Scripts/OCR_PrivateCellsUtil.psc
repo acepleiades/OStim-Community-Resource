@@ -2,7 +2,6 @@ Scriptname OCR_PrivateCellsUtil extends Quest
 
 Actor Property PlayerRef Auto
 Faction Property OCR_Lover_AcceptsMultiplePartnersFaction Auto
-Faction Property OCR_PrivateCellVisitorFaction Auto
 Message Property OCR_GoToPrivateCell_FollowersMSG  Auto
 Message Property OCR_GoToPrivateCell_LoversMSG  Auto
 MiscObject Property Gold001  Auto
@@ -38,54 +37,45 @@ ReferenceAlias Property AliasLover9  Auto
 ReferenceAlias Property InvitedNPC  Auto
 
 function GoToPrivateCell_Camp(actor actor1)
-    ;Start OCR_PrivateCells_PlayerDialogue, which gives a dialogue option for ending the visit
+	;Starts the necessary quests
+    OCR_PrivateCells_FollowerAliases.Start()
+    OCR_PrivateCells_LoverAliases.Start()
     OCR_PrivateCells_PlayerDialogueQST.Start()
+    ;Adds NPC into the necessary alias
+    InvitedNPC.ForceRefTo(actor1)
     ;Move the return marker to the player
     OCR_XMarker_Return.MoveTo(playerref)
-    ;Inviting followers functionality. Checks if the follower aliases have been filled. This appears to always return true, though.
-    OCR_PrivateCells_FollowerAliases.Start()
-    if AliasFollower0.GetActorReference().IsInFaction(OCR_PrivateCellVisitorFaction)
-        int iChoice0 = OCR_GoToPrivateCell_FollowersMSG.Show()
-        if iChoice0 == 0 ;"Yes"
-            ;Take followers with you.
-            AliasFollower0.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-            AliasFollower1.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-            AliasFollower2.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-            AliasFollower3.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-            AliasFollower4.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-            AliasFollower5.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-            AliasFollower6.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-            AliasFollower7.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-            AliasFollower8.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-            AliasFollower9.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-        endif
-    Else
-    	MiscUtil.PrintConsole("OCR_PrivateCellsUtil: no follower aliases were filled.")
+    ;Inviting followers functionality
+    int iChoice0 = OCR_GoToPrivateCell_FollowersMSG.Show()
+    if iChoice0 == 0 ;"Yes"
+        ;Take followers with you.
+        AliasFollower0.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+        AliasFollower1.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+        AliasFollower2.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+        AliasFollower3.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+        AliasFollower4.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+        AliasFollower5.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+        AliasFollower6.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+        AliasFollower7.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+        AliasFollower8.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+        AliasFollower9.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
     endif
-    ;Adds NPC into the necessary alias
-    OCR_PrivateCells_LoverAliases.Start()
-    InvitedNPC.ForceRefTo(actor1)
     ;Inviting additional lovers functionality. Checks if the invited NPC accepts multiple partners.
     if actor1.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
-    	;Checks if an additional lover alias was filled. This function is aborted if AliasLover0.GetActorReference() returns none (in other words, is empty)
-    	if AliasLover0.GetActorReference().IsInFaction(OCR_PrivateCellVisitorFaction)
-    	    int iChoice0 = OCR_GoToPrivateCell_LoversMSG.Show()
-    	    if iChoice0 == 0 ;"Yes"
-    	        ;Take additional lovers with you.
-    	        AliasLover0.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	        AliasLover1.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	        AliasLover2.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	        AliasLover3.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	        AliasLover4.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	        AliasLover5.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	        AliasLover6.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	        AliasLover7.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	        AliasLover8.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	        AliasLover9.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	    endif
+    	int iChoice1 = OCR_GoToPrivateCell_LoversMSG.Show()
+    	if iChoice1 == 0 ;"Yes"
+    	    ;Take additional lovers with you.
+    	    AliasLover0.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasLover1.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasLover2.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasLover3.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasLover4.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasLover5.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasLover6.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasLover7.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasLover8.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasLover9.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
     	endif
-    Else
-    	MiscUtil.PrintConsole("OCR_PrivateCellsUtil: no additional lover aliases were filled.")
     endif
     ;Move invited NPC and player into the cell
     actor1.MoveTo(OCR_XMarker_NPC_Camp)
@@ -93,42 +83,33 @@ function GoToPrivateCell_Camp(actor actor1)
 endfunction
 
 function GoToPrivateCell_Inn(actor actor1)
+	;Starts the necessary quests
+    OCR_PrivateCells_FollowerAliases.Start()
+    OCR_PrivateCells_LoverAliases.Start()
+    OCR_PrivateCells_PlayerDialogueQST.Start()
+    ;Adds NPC into the necessary alias
+    InvitedNPC.ForceRefTo(actor1)
 	;Take gold away from player
 	PlayerRef.RemoveItem(Gold001, 50)
-    ;Start OCR_PrivateCells_PlayerDialogue, which gives a dialogue option for ending the visit
-    OCR_PrivateCells_PlayerDialogueQST.Start()
     ;Move the return marker to the player
     OCR_XMarker_Return.MoveTo(playerref)
-    ;Inviting followers functionality. Checks if the follower aliases have been filled. This appears to always return true, though.
-    OCR_PrivateCells_FollowerAliases.Start()
-    if AliasFollower0.GetActorReference().IsInFaction(OCR_PrivateCellVisitorFaction)
-        int iChoice0 = OCR_GoToPrivateCell_FollowersMSG.Show()
-        if iChoice0 == 0 ;"Yes"
-            ;Take followers with you. For the inn visit it's up to 3.
-            AliasFollower0.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-            AliasFollower1.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-            AliasFollower2.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-        endif
-    Else
-    	MiscUtil.PrintConsole("OCR_PrivateCellsUtil: no follower aliases were filled.")
+    ;Inviting followers functionality
+    int iChoice0 = OCR_GoToPrivateCell_FollowersMSG.Show()
+    if iChoice0 == 0 ;"Yes"
+        ;Take followers with you. For the inn visit it's up to 3.
+        AliasFollower0.GetActorReference().MoveTo(OCR_XMarker_NPC_Inn)
+        AliasFollower1.GetActorReference().MoveTo(OCR_XMarker_NPC_Inn)
+        AliasFollower2.GetActorReference().MoveTo(OCR_XMarker_NPC_Inn)
     endif
-    ;Adds NPC into the necessary alias
-    OCR_PrivateCells_LoverAliases.Start()
-    InvitedNPC.ForceRefTo(actor1)
     ;Inviting additional lovers functionality. Checks if the invited NPC accepts multiple partners.
     if actor1.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
-    	;Checks if an additional lover alias was filled. This function is aborted if AliasLover0.GetActorReference() returns none (in other words, is empty)
-    	if AliasLover0.GetActorReference().IsInFaction(OCR_PrivateCellVisitorFaction)
-    	    int iChoice0 = OCR_GoToPrivateCell_LoversMSG.Show()
-    	    if iChoice0 == 0 ;"Yes"
-    	        ;Take additional lovers with you. For the inn visit it's up to 3.
-    	        AliasLover0.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	        AliasLover1.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	        AliasLover2.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-    	    endif
+    	int iChoice1 = OCR_GoToPrivateCell_LoversMSG.Show()
+    	if iChoice1 == 0 ;"Yes"
+    	    ;Take additional lovers with you. For the inn visit it's up to 3.
+    	    AliasLover0.GetActorReference().MoveTo(OCR_XMarker_NPC_Inn)
+    	    AliasLover1.GetActorReference().MoveTo(OCR_XMarker_NPC_Inn)
+    	    AliasLover2.GetActorReference().MoveTo(OCR_XMarker_NPC_Inn)
     	endif
-    Else
-    	MiscUtil.PrintConsole("OCR_PrivateCellsUtil: no additional lover aliases were filled.")
     endif
     ;Move invited NPC and player into the cell
     actor1.MoveTo(OCR_XMarker_NPC_Inn)
