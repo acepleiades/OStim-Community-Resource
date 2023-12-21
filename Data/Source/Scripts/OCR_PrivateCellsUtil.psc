@@ -1,8 +1,10 @@
 Scriptname OCR_PrivateCellsUtil extends Quest  
 
 Actor Property PlayerRef Auto
+Faction Property OCR_Lover_AcceptsMultiplePartnersFaction Auto
 Message Property OCR_GoToPrivateCell_FollowersMSG  Auto
 Message Property OCR_GoToPrivateCell_LoversMSG  Auto
+MiscObject Property Gold001  Auto
 ObjectReference Property OCR_XMarker_NPC_Camp  Auto
 ObjectReference Property OCR_XMarker_NPC_Inn  Auto
 ObjectReference Property OCR_XMarker_Player_Camp  Auto
@@ -33,7 +35,6 @@ ReferenceAlias Property AliasLover7  Auto
 ReferenceAlias Property AliasLover8  Auto
 ReferenceAlias Property AliasLover9  Auto
 ReferenceAlias Property InvitedNPC  Auto
-Faction Property OCR_Lover_AcceptsMultiplePartnersFaction Auto
 
 function GoToPrivateCell_Camp(actor actor1)
     ;Start OCR_PrivateCells_PlayerDialogue, which gives a dialogue option for ending the visit
@@ -91,6 +92,8 @@ function GoToPrivateCell_Camp(actor actor1)
 endfunction
 
 function GoToPrivateCell_Inn(actor actor1)
+	;Take gold away from player
+	PlayerRef.RemoveItem(Gold001, 50)
     ;Start OCR_PrivateCells_PlayerDialogue, which gives a dialogue option for ending the visit
     OCR_PrivateCells_PlayerDialogueQST.Start()
     ;Move the return marker to the player
