@@ -19,7 +19,6 @@ bool property TemporarilyDisabledOStimAddActorsAtStart Auto
 
 Function OCR_StartScene(actor InvitedNPC)
 	OCRSceneNPC.ForceRefTo(InvitedNPC)
-    DisableAddActors()
     if InvitedNPC.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
         int iChoice0 = OCR_ScenesUtil_3PP.Show()
         if iChoice0 == 0
@@ -59,12 +58,8 @@ Function OCR_StartScene(actor InvitedNPC)
     endif
 endFunction
 
-Function DisableAddActors()
-	;I tried multiple ways to only disable this setting temporarily but it didn't work in game every time
-    OStimAddActorsAtStart.SetValue(0)
-EndFunction
-
 function OCR_StartScene2P(actor InvitedNPC)
+    DisableAddActors()
 	Actor[] actors = new actor[2]
 	Actors[0] = PlayerRef
 	Actors[1] = InvitedNPC
@@ -73,6 +68,7 @@ function OCR_StartScene2P(actor InvitedNPC)
 endFunction
 
 function OCR_StartScene3P(actor actor1, actor actor2, actor actor3)
+    DisableAddActors()
 	Actor[] actors = new actor[3]
 	Actors[0] = PlayerRef
 	Actors[1] = actor2
@@ -80,6 +76,11 @@ function OCR_StartScene3P(actor actor1, actor actor2, actor actor3)
 	OThread.QuickStart(actors)
 	StartSceneReset()
 endFunction
+
+Function DisableAddActors()
+	;I tried multiple ways to only disable this setting temporarily but it didn't work in game every time
+    OStimAddActorsAtStart.SetValue(0)
+EndFunction
 
 function StartSceneReset()
 	OCRSceneNPC.Clear()
