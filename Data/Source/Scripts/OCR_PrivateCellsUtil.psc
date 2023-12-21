@@ -44,7 +44,7 @@ function GoToPrivateCell_Camp(actor actor1)
     OCR_XMarker_Return.MoveTo(playerref)
     ;Inviting followers functionality. Checks if the follower aliases have been filled. This appears to always return true, though.
     OCR_PrivateCells_FollowerAliases.Start()
-    if (AliasFollower0.GetReference())
+    if AliasFollower0.GetActorReference().IsInFaction(OCR_PrivateCellVisitorFaction)
         int iChoice0 = OCR_GoToPrivateCell_FollowersMSG.Show()
         if iChoice0 == 0 ;"Yes"
             ;Take followers with you.
@@ -101,7 +101,7 @@ function GoToPrivateCell_Inn(actor actor1)
     OCR_XMarker_Return.MoveTo(playerref)
     ;Inviting followers functionality. Checks if the follower aliases have been filled. This appears to always return true, though.
     OCR_PrivateCells_FollowerAliases.Start()
-    if (AliasFollower0.GetReference())
+    if AliasFollower0.GetActorReference().IsInFaction(OCR_PrivateCellVisitorFaction)
         int iChoice0 = OCR_GoToPrivateCell_FollowersMSG.Show()
         if iChoice0 == 0 ;"Yes"
             ;Take followers with you. For the inn visit it's up to 3.
