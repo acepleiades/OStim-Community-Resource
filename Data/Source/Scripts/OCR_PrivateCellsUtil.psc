@@ -2,6 +2,7 @@ Scriptname OCR_PrivateCellsUtil extends Quest
 
 Actor Property PlayerRef Auto
 Faction Property OCR_Lover_AcceptsMultiplePartnersFaction Auto
+Faction Property OCR_PrivateCellVisitorFaction Auto
 Message Property OCR_GoToPrivateCell_FollowersMSG  Auto
 Message Property OCR_GoToPrivateCell_LoversMSG  Auto
 MiscObject Property Gold001  Auto
@@ -66,8 +67,8 @@ function GoToPrivateCell_Camp(actor actor1)
     InvitedNPC.ForceRefTo(actor1)
     ;Inviting additional lovers functionality. Checks if the invited NPC accepts multiple partners.
     if actor1.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
-    	;Checks if an additional lover alias was filled. This appears to always return true, though.
-    	if (AliasLover0.GetReference())
+    	;Checks if an additional lover alias was filled. This function is aborted if AliasLover0.GetActorReference() returns none (in other words, is empty)
+    	if AliasLover0.GetActorReference().IsInFaction(OCR_PrivateCellVisitorFaction)
     	    int iChoice0 = OCR_GoToPrivateCell_LoversMSG.Show()
     	    if iChoice0 == 0 ;"Yes"
     	        ;Take additional lovers with you.
@@ -116,8 +117,8 @@ function GoToPrivateCell_Inn(actor actor1)
     InvitedNPC.ForceRefTo(actor1)
     ;Inviting additional lovers functionality. Checks if the invited NPC accepts multiple partners.
     if actor1.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
-    	;Checks if an additional lover alias was filled. This appears to always return true, though.
-    	if (AliasLover0.GetReference())
+    	;Checks if an additional lover alias was filled. This function is aborted if AliasLover0.GetActorReference() returns none (in other words, is empty)
+    	if AliasLover0.GetActorReference().IsInFaction(OCR_PrivateCellVisitorFaction)
     	    int iChoice0 = OCR_GoToPrivateCell_LoversMSG.Show()
     	    if iChoice0 == 0 ;"Yes"
     	        ;Take additional lovers with you. For the inn visit it's up to 3.
