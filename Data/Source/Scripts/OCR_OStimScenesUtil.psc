@@ -15,8 +15,6 @@ ReferenceAlias Property ThreePCandidate2  Auto
 ReferenceAlias Property ThreePCandidate3  Auto
 ReferenceAlias Property ThreePCandidateAliases_ScenesUtil_OCRSceneNPC  Auto
 
-bool property TemporarilyDisabledOStimAddActorsAtStart Auto
-
 Function OCR_StartScene(actor InvitedNPC)
 	OCRSceneNPC.ForceRefTo(InvitedNPC)
     if InvitedNPC.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
