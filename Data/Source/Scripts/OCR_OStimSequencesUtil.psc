@@ -80,6 +80,13 @@ bool Function Kiss1(actor actor1)
     return true
 EndFunction
 
+bool Function StandingConversation(actor actor1)
+    Actor[] actors = OActorUtil.ToArray(PlayerRef, actor1)
+    string mySequence = GetSequence("StandingConversation")
+    Util.StartOstimSequence(actors, mySequence, true)
+    return true
+EndFunction
+
 bool Function StandingConversationLoop(actor actor1)
     Actor[] actors = OActorUtil.ToArray(PlayerRef, actor1)
     string mySequence = GetSequence("StandingConversationLoop")
@@ -160,13 +167,6 @@ EndFunction
 bool Function Kiss1NPC(actor actor1)
     Actor[] actors = OActorUtil.ToArray(PlayerRef, actor1)
     string mySequence = GetSequenceNPC("Kiss1")
-    Util.StartOstimSequence(actors, mySequence, true)
-    return true
-EndFunction
-
-bool Function StandingConversationLoopNPC(actor actor1)
-    Actor[] actors = OActorUtil.ToArray(PlayerRef, actor1)
-    string mySequence = GetSequenceNPC("StandingConversationLoop")
     Util.StartOstimSequence(actors, mySequence, true)
     return true
 EndFunction
