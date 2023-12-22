@@ -1,8 +1,12 @@
 {
     "scenes": [
         {
-            "id": "OCR_MF_StandingConversation",
-            "duration": 15
+            "id": "OCR_MF_StandingConversationLoop",
+            "duration": 14
+        },
+        {
+            "id": "OCR_MF_BasicIdle",
+            "duration": 0.5
         }
     ]
 }

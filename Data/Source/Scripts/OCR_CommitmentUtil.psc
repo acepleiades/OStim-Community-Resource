@@ -1,5 +1,6 @@
 Scriptname OCR_CommitmentUtil extends Quest  
 
+Actor Property PlayerRef Auto
 Class Property Citizen  Auto
 Class Property GuardOrc1H  Auto
 Class Property GuardOrc2H Auto
