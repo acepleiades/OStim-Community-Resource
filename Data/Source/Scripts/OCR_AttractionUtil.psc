@@ -415,14 +415,17 @@ float Function CalculateSkillAttractivenessBonus(Actor actor1)
     if actor1.IsInFaction(OCR_Trait_EnthusiastArcane)
         if highestMageSkill > 30
             bonus += highestMageSkill / 5
+            MiscUtil.PrintConsole("CalculateSkillAttractivenessBonus: NPC has trait OCR_Trait_EnthusiastArcane")
         endIf
     elseIf actor1.IsInFaction(OCR_Trait_EnthusiastEscapade)
         if highestThiefSkill > 30
             bonus += highestThiefSkill / 5
+            MiscUtil.PrintConsole("CalculateSkillAttractivenessBonus: NPC has trait OCR_Trait_EnthusiastEscapade")
         endIf
     elseIf actor1.IsInFaction(OCR_Trait_EnthusiastMartial)
         if highestWarriorSkill > 30
             bonus += highestWarriorSkill / 5
+            MiscUtil.PrintConsole("CalculateSkillAttractivenessBonus: NPC has trait OCR_Trait_EnthusiastMartial")
         endIf
     endIf
 
