@@ -99,7 +99,6 @@ float Function CalculateNPCAttraction(actor actor1)
         AttractivenessBase = OCR_AttractivenessBase.GetValue()
     endif
     MiscUtil.PrintConsole("GetNPCAttraction: player's base attractiveness is " + AttractivenessBase)
-    MiscUtil.PrintConsole("GetNPCAttraction: passed step one.")
     
     ;Initializations
     float AttractivenessBonus_Race = 0
@@ -148,7 +147,6 @@ float Function CalculateNPCAttraction(actor actor1)
     endif
     MiscUtil.PrintConsole("GetNPCAttraction: NPC's race is " + actor1Race)
     MiscUtil.PrintConsole("GetNPCAttraction: AttractivenessBonus_Race is " + AttractivenessBonus_Race)
-    MiscUtil.PrintConsole("GetNPCAttraction: passed step two.")
 
     ;Step three: calculate the PC's Attractiveness bonus from skills.
     if actor1.IsInFaction(OCR_Trait_EnthusiastArcane) || actor1.IsInFaction(OCR_Trait_EnthusiastEscapade) || actor1.IsInFaction(OCR_Trait_EnthusiastMartial)
@@ -158,7 +156,6 @@ float Function CalculateNPCAttraction(actor actor1)
         AttractivenessBonus_Skills = CalculateSkillAttractivenessBonus(actor1)
     endif
     MiscUtil.PrintConsole("GetNPCAttraction: AttractivenessBonus_Skills is " + AttractivenessBonus_Skills)
-    MiscUtil.PrintConsole("GetNPCAttraction: passed step three.")
 
     ;Step four: take into account the PC's accomplishments.
     Float actor1Morality  = actor1.GetAV("Morality")
@@ -189,24 +186,20 @@ float Function CalculateNPCAttraction(actor actor1)
             MiscUtil.PrintConsole("GetNPCAttraction: Player character is a vampire or werewolf (+15 attraction).")
         endif
     endif
-    MiscUtil.PrintConsole("GetNPCAttraction: passed step four.")
 
     ;Step five: a bonus in all cases if PC is the savior of Tamriel.
     if MQ305.IsCompleted()
         AttractivenessBonus_MainQuest = 30
         MiscUtil.PrintConsole("GetNPCAttraction: Player character is the savior of Tamriel (+30 attraction).")
     endif
-    MiscUtil.PrintConsole("GetNPCAttraction: passed step five.")
 
     ;Step six: sum up all Attractiveness values.
     float TotalAttractiveness = AttractivenessBase + AttractivenessBonus_Race + AttractivenessBonus_Skills + AttractivenessBonus_Fame + AttractivenessBonus_FactionLeader + AttractivenessBonus_Monster + AttractivenessBonus_MainQuest
     MiscUtil.PrintConsole("GetNPCAttraction: PC's total attractiveness for this NPC is " + TotalAttractiveness)
-    MiscUtil.PrintConsole("GetNPCAttraction: passed step six.")
 
     ; Step seven: get the attraction threshold based on NPC's class and sex
     int attractionThreshold = GetAttractivenessThreshold(actor1)
     MiscUtil.PrintConsole("GetNPCAttraction: NPC's attractionThreshold is " + attractionThreshold)
-    MiscUtil.PrintConsole("GetNPCAttraction: passed step seven.")
 
     ; Return the ratio of Total Attractiveness to attractionThreshold
     ; Make sure to handle division by zero if the threshold can be zero
