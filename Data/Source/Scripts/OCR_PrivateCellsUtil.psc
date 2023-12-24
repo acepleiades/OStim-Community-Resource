@@ -46,22 +46,25 @@ function GoToPrivateCell_Camp(actor actor1)
     ;Move the return marker to the player
     OCR_XMarker_Return.MoveTo(playerref)
     ;Inviting followers functionality
+    bool NPCAcceptsMultiplePartners = actor1.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
     int iChoice0 = OCR_GoToPrivateCell_FollowersMSG.Show()
-    if iChoice0 == 0 ;"Yes"
-        ;Take followers with you.
-        AliasFollower0.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-        AliasFollower1.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-        AliasFollower2.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-        AliasFollower3.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-        AliasFollower4.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-        AliasFollower5.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-        AliasFollower6.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-        AliasFollower7.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-        AliasFollower8.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
-        AliasFollower9.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    if NPCAcceptsMultiplePartners
+    	if iChoice0 == 0 ;"Yes"
+    	    ;Take followers with you.
+    	    AliasFollower0.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasFollower1.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasFollower2.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasFollower3.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasFollower4.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasFollower5.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasFollower6.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasFollower7.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasFollower8.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	    AliasFollower9.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    	endif
     endif
     ;Inviting additional lovers functionality. Checks if the invited NPC accepts multiple partners.
-    if actor1.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
+    if NPCAcceptsMultiplePartners
     	int iChoice1 = OCR_GoToPrivateCell_LoversMSG.Show()
     	if iChoice1 == 0 ;"Yes"
     	    ;Take additional lovers with you.
