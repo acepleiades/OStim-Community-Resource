@@ -77,6 +77,7 @@ Faction Property JobOrcChiefFaction Auto
 Faction Property JobPriestFaction Auto  
 Faction Property JobRentRoomFaction Auto  
 Faction Property JobStewardFaction Auto 
+Faction Property MarkarthWarrensTenantsFaction Auto 
 Class Property Citizen  Auto  
 Class Property GuardOrc1H  Auto  
 Class Property GuardOrc2H Auto  
@@ -314,7 +315,7 @@ int Function GetAttractivenessThreshold(Actor actor1)
     else
         ; Assign NPC to the correct social class faction
         MiscUtil.PrintConsole("GetNPCAttraction: NPC does not have an OCR social class. Assigning...")
-        if (actor1.GetFactionRank(FavorJobsBeggarsFaction) >= -1) || (actor1.GetFactionRank(FavorJobsDrunksFaction) >= -1) || (actor1.GetFactionRank(JobLumberjackFaction) >= -1) || (actor1.GetFactionRank(JobMinerFaction) >= -1)
+        if (actor1.GetFactionRank(FavorJobsBeggarsFaction) >= -1) || (actor1.GetFactionRank(FavorJobsDrunksFaction) >= -1) || (actor1.GetFactionRank(JobLumberjackFaction) >= -1) || (actor1.GetFactionRank(JobMinerFaction) >= -1) || (actor1.GetFactionRank(MarkarthWarrensTenantsFaction) >= -1)
             MiscUtil.PrintConsole("GetNPCAttraction: Assigned social class OCR_SocialClass_CitizenLowest")
             actor1.AddToFaction(OCR_SocialClass_CitizenLowest)
             if actor1IsFemale == 1
