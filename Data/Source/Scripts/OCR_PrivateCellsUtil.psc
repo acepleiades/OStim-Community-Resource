@@ -97,13 +97,16 @@ function GoToPrivateCell_Inn(actor actor1)
     ;Move the return marker to the player
     OCR_XMarker_Return.MoveTo(playerref)
     ;Inviting followers functionality
+    bool NPCAcceptsMultiplePartners = actor1.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
     int iChoice0 = OCR_GoToPrivateCell_FollowersMSG.Show()
-    if iChoice0 == 0 ;"Yes"
-        ;Take followers with you. For the inn visit it's up to 3.
-        AliasFollower0.GetActorReference().MoveTo(OCR_XMarker_NPC_Inn)
-        AliasFollower1.GetActorReference().MoveTo(OCR_XMarker_NPC_Inn)
-        AliasFollower2.GetActorReference().MoveTo(OCR_XMarker_NPC_Inn)
-    endif
+    if NPCAcceptsMultiplePartners
+    	if iChoice0 == 0 ;"Yes"
+        	;Take followers with you. For the inn visit it's up to 3.
+        	AliasFollower0.GetActorReference().MoveTo(OCR_XMarker_NPC_Inn)
+        	AliasFollower1.GetActorReference().MoveTo(OCR_XMarker_NPC_Inn)
+        	AliasFollower2.GetActorReference().MoveTo(OCR_XMarker_NPC_Inn)
+    	endif
+	endif
     ;Inviting additional lovers functionality. Checks if the invited NPC accepts multiple partners.
     if actor1.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
     	int iChoice1 = OCR_GoToPrivateCell_LoversMSG.Show()
