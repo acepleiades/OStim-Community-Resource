@@ -1,5 +1,6 @@
 Scriptname OCR_Cheating extends Quest  
 
+;You should make a copy of this script specific for your project
 ;After duplicating OCR_CheatingConsequenceTEMPLATE and OCR_CheatingDetectedMessageTEMPLATE, fill these manually
 Quest Property MyCheatingDetectionQuest  Auto
 Message Property MyCheatingDetectedMessage  Auto
