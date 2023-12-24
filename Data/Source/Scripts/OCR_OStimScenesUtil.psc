@@ -3,11 +3,11 @@ Scriptname OCR_OStimScenesUtil extends Quest
 Actor Property PlayerRef Auto
 Faction Property OCR_Lover_AcceptsMultiplePartnersFaction Auto
 Faction Property OCR_OStimScenes_3PPCandidateFaction  Auto
-GlobalVariable Property OCR_OStimScenes_3PCandidateAmount  auto
+GlobalVariable Property OCR_OStimScenes_3PPCandidateAmount  auto
 GlobalVariable Property OStimAddActorsAtStart  auto
-Message Property OCR_ScenesUtil_3PCandidateSelect  Auto
+Message Property OCR_ScenesUtil_3PPCandidateSelect  Auto
 Message Property OCR_ScenesUtil_3PP  Auto
-Quest Property OCR_OStimScenes_3PCandidateAliases  Auto
+Quest Property OCR_OStimScenes_3PPCandidateAliases  Auto
 ReferenceAlias Property OCRSceneNPC  Auto
 ReferenceAlias Property ThreePCandidate0  Auto
 ReferenceAlias Property ThreePCandidate1  Auto
@@ -20,7 +20,7 @@ Function OCR_StartScene(actor InvitedNPC)
     if InvitedNPC.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
         int iChoice0 = OCR_ScenesUtil_3PP.Show()
         if iChoice0 == 0
-            OCR_OStimScenes_3PCandidateAliases.Start()
+            OCR_OStimScenes_3PPCandidateAliases.Start()
             ReferenceAlias[] threePCandidates = new ReferenceAlias[4]
             threePCandidates[0] = ThreePCandidate0
             threePCandidates[1] = ThreePCandidate1
@@ -39,8 +39,8 @@ Function OCR_StartScene(actor InvitedNPC)
                 Debug.Notification("No suitable candidates were found.")
                 OCR_StartScene2P(InvitedNPC)
             else
-                OCR_OStimScenes_3PCandidateAmount.SetValue(numOfCandidates)
-                int iChoice1 = OCR_ScenesUtil_3PCandidateSelect.Show()
+                OCR_OStimScenes_3PPCandidateAmount.SetValue(numOfCandidates)
+                int iChoice1 = OCR_ScenesUtil_3PPCandidateSelect.Show()
                 if iChoice1 >= 0 && iChoice1 < numOfCandidates
                     actor chosenActor = threePCandidates[iChoice1].GetActorReference()
                     OCR_StartScene3P(PlayerRef, InvitedNPC, chosenActor)
@@ -87,5 +87,5 @@ function StartSceneReset()
 	ThreePCandidate1.Clear()
 	ThreePCandidate2.Clear()
 	ThreePCandidate3.Clear()
-    OCR_OStimScenes_3PCandidateAliases.Stop()
+    OCR_OStimScenes_3PPCandidateAliases.Stop()
 endFunction
