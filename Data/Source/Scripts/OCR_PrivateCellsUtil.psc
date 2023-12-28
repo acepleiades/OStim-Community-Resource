@@ -1,6 +1,7 @@
 Scriptname OCR_PrivateCellsUtil extends Quest  
 
 Actor Property PlayerRef Auto
+Armor Property OCR_InvisibleEquipment_Armor  Auto
 Faction Property OCR_Lover_AcceptsMultiplePartnersFaction Auto
 Message Property OCR_GoToPrivateCell_FollowersMSG  Auto
 Message Property OCR_GoToPrivateCell_LoversMSG  Auto
@@ -126,49 +127,66 @@ function EndVisit()
 	;Stops and resets whatever is needed
 	OCR_PrivateCells_EndVisit.Stop()
 	OCR_PrivateCells_PlayerDialogueQST.Stop()
-	InvitedNPC.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasFollower0.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasFollower1.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasFollower2.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasFollower3.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasFollower4.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasFollower5.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasFollower6.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasFollower7.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasFollower8.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasFollower9.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasLover0.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasLover1.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasLover2.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasLover3.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasLover4.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasLover5.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasLover6.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasLover7.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasLover8.GetActorReference().MoveTo(OCR_XMarker_Return)
-	AliasLover9.GetActorReference().MoveTo(OCR_XMarker_Return)
+	actor InvitedActor = InvitedNPC.GetActorReference()
+	EndVisitActorProcedures(InvitedActor)
+	;0
+	actor Follower0 = AliasFollower0.GetActorReference()
+	actor Lover0 = AliasFollower0.GetActorReference()
+	EndVisitActorProcedures(Follower0)
+	EndVisitActorProcedures(Lover0)
+	;1
+	actor Follower1 = AliasFollower1.GetActorReference()
+	actor Lover1 = AliasFollower1.GetActorReference()
+	EndVisitActorProcedures(Follower1)
+	EndVisitActorProcedures(Lover1)
+	;2
+	actor Follower2 = AliasFollower2.GetActorReference()
+	actor Lover2 = AliasFollower2.GetActorReference()
+	EndVisitActorProcedures(Follower2)
+	EndVisitActorProcedures(Lover2)
+	;3
+	actor Follower3 = AliasFollower3.GetActorReference()
+	actor Lover3 = AliasFollower3.GetActorReference()
+	EndVisitActorProcedures(Follower3)
+	EndVisitActorProcedures(Lover3)
+	;4
+	actor Follower4 = AliasFollower4.GetActorReference()
+	actor Lover4 = AliasFollower4.GetActorReference()
+	EndVisitActorProcedures(Follower4)
+	EndVisitActorProcedures(Lover4)
+	;5
+	actor Follower5 = AliasFollower5.GetActorReference()
+	actor Lover5 = AliasFollower5.GetActorReference()
+	EndVisitActorProcedures(Follower5)
+	EndVisitActorProcedures(Lover5)
+	;6
+	actor Follower6 = AliasFollower0.GetActorReference()
+	actor Lover6 = AliasFollower0.GetActorReference()
+	EndVisitActorProcedures(Follower6)
+	EndVisitActorProcedures(Lover6)
+	;7
+	actor Follower7 = AliasFollower0.GetActorReference()
+	actor Lover7 = AliasFollower0.GetActorReference()
+	EndVisitActorProcedures(Follower7)
+	EndVisitActorProcedures(Lover7)
+	;8
+	actor Follower8 = AliasFollower0.GetActorReference()
+	actor Lover8 = AliasFollower0.GetActorReference()
+	EndVisitActorProcedures(Follower8)
+	EndVisitActorProcedures(Lover8)
+	;9
+	actor Follower9 = AliasFollower0.GetActorReference()
+	actor Lover9 = AliasFollower0.GetActorReference()
+	EndVisitActorProcedures(Follower9)
+	EndVisitActorProcedures(Lover9)
+	;Reset
 	OCR_XMarker_Return.MoveToMyEditorLocation()
-	InvitedNPC.Clear()
-	AliasFollower0.Clear()
-	AliasFollower1.Clear()
-	AliasFollower2.Clear()
-	AliasFollower3.Clear()
-	AliasFollower4.Clear()
-	AliasFollower5.Clear()
-	AliasFollower6.Clear()
-	AliasFollower7.Clear()
-	AliasFollower8.Clear()
-	AliasFollower9.Clear()
 	OCR_PrivateCells_FollowerAliases.Stop()
-	AliasLover0.Clear()
-	AliasLover1.Clear()
-	AliasLover2.Clear()
-	AliasLover3.Clear()
-	AliasLover4.Clear()
-	AliasLover5.Clear()
-	AliasLover6.Clear()
-	AliasLover7.Clear()
-	AliasLover8.Clear()
-	AliasLover9.Clear()
 	OCR_PrivateCells_LoverAliases.Stop()
+endfunction
+
+function EndVisitActorProcedures(actor actor1)
+    actor1.AddItem(OCR_InvisibleEquipment_Armor as form, 1, false)
+    actor1.RemoveItem(OCR_InvisibleEquipment_Armor as form, 1, false, none)
+	actor1.MoveTo(OCR_XMarker_Return)
 endfunction

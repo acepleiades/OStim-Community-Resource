@@ -79,3 +79,5 @@ b -a,Tn OCR_NPCInt_FM_CaressFail_0 ..\..\..\..\OCR_animations\12.2023\Female_Mal
 b -a,Tn OCR_NPCInt_FM_CaressFail_1 ..\..\..\..\OCR_animations\12.2023\Female_Male\FM_CaressFail\OCR_NPCInt_FM_CaressFail_1.hkx
 b -a,Tn OCR_NPCInt_FM_Kiss1_0 ..\..\..\..\OCR_animations\12.2023\Female_Male\FM_Kiss1\OCR_NPCInt_FM_Kiss1_0.hkx
 b -a,Tn OCR_NPCInt_FM_Kiss1_1 ..\..\..\..\OCR_animations\12.2023\Female_Male\FM_Kiss1\OCR_NPCInt_FM_Kiss1_1.hkx
+
+b -a OCR_FemaleUndressingAnimation ..\..\..\..\actors\character\animations\OCR\OCR_FemaleUndressingAnimation.hkx
