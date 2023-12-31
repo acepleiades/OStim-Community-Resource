@@ -81,3 +81,9 @@ b -a,Tn OCR_NPCInt_FM_Kiss1_0 ..\..\..\..\OCR_animations\12.2023\Female_Male\FM_
 b -a,Tn OCR_NPCInt_FM_Kiss1_1 ..\..\..\..\OCR_animations\12.2023\Female_Male\FM_Kiss1\OCR_NPCInt_FM_Kiss1_1.hkx
 
 b -a OCR_FemaleUndressingAnimation ..\..\..\..\actors\character\animations\OCR\OCR_FemaleUndressingAnimation.hkx
+
+b -Tn OCR_FemaleUndressingHeadAnimation ..\..\..\..\actors\character\animations\OCR\OCR_FemaleUndressingHeadAnimation.hkx
+b -Tn OCR_FemaleUndressingFeetAnimation ..\..\..\..\actors\character\animations\OCR\OCR_FemaleUndressingFeetAnimation.hkx
+b -Tn OCR_FemaleUndressingTopAnimation ..\..\..\..\actors\character\animations\OCR\OCR_FemaleUndressingTopAnimation.hkx
+b -Tn OCR_FemaleUndressingBottomAnimation ..\..\..\..\actors\character\animations\OCR\OCR_FemaleUndressingBottomAnimation.hkx
+b -Tn OCR_FemaleUndressingGlovesAnimation ..\..\..\..\actors\character\animations\OCR\OCR_FemaleUndressingGlovesAnimation.hkx
