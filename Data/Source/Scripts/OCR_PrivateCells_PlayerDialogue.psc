@@ -24,44 +24,45 @@ Function AnimatedUndressSlot(Actor target, int slot, Idle anim, float duration, 
 EndFunction
 
 Function SmartUndressing(Actor target)
-    MiscUtil.PrintConsole("Start smart undressing")
+    ;MiscUtil.PrintConsole("Start smart undressing")
 
-    float handsDuration = 4
-    float headDuration = 3
-    float feetDuration = 4.5
-    float bottomDuration = 6
-    float bodyDuration = 4
+    float handsDuration = 2.9
+    float headDuration = 2
+    float feetDuration = 3.9
+    float bottomDuration = 5
+    float bodyDuration = 3.433333
 
     ;hands
     If target.GetWornForm(0x00000008)
-        MiscUtil.PrintConsole("Hands undressing.")
+        ;MiscUtil.PrintConsole("Hands undressing.")
         AnimatedUndressSlot(target, 33, OCR_FemaleUndressingGlovesAnimation, handsDuration)
     EndIf
 
     ;head
     If target.GetWornForm(0x00000001)
-        MiscUtil.PrintConsole("Head undressing.")
+        ;MiscUtil.PrintConsole("Head undressing.")
 		AnimatedUndressSlot(target, 30, OCR_FemaleUndressingHeadAnimation, headDuration)
 	EndIf
 
     ;feet
     If target.GetWornForm(0x00000080)
-        MiscUtil.PrintConsole("Feet undressing.")
+        ;MiscUtil.PrintConsole("Feet undressing.")
 		AnimatedUndressSlot(target, 37, OCR_FemaleUndressingFeetAnimation, feetDuration, 3)
 	EndIf
 
     ;bottom
     If target.GetWornForm(0x00000100)
-        MiscUtil.PrintConsole("Bottom undressing.")
+        ;MiscUtil.PrintConsole("Bottom undressing.")
 		AnimatedUndressSlot(target, 38, OCR_FemaleUndressingBottomAnimation, bottomDuration)
 	EndIf
 
     ;top
     if target.GetWornForm(0x00000004)
-        MiscUtil.PrintConsole("Top undressing")
+        ;MiscUtil.PrintConsole("Top undressing")
         AnimatedUndressSlot(target, 32, OCR_FemaleUndressingTopAnimation, bodyDuration)
     endif
 
+    ; exit from last idle animation loop, otherwise it will repeat last idle
     Debug.SendAnimationEvent(target, "IdleForceDefaultState")
 EndFunction
 
@@ -102,7 +103,6 @@ function SkinnyDipping(actor actor1)
 endfunction
 
 function SkinnyDippingEnd(actor actor1)
-    MiscUtil.PrintConsole("SkinnyDippingEnd")
     actor1.DispelSpell(OCR_SkinnyDippingSpell)
     OCR_SkinnyDippingEndSpell.Cast(PlayerRef, actor1)
     actor1.EvaluatePackage()
