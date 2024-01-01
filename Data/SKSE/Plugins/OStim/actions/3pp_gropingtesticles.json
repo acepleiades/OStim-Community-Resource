@@ -1,21 +1,4 @@
 {
-	"aliases":[
-		"gropeballs",
-		"gropeballsack",
-		"gropetesticle",
-		"gropetesticles",
-		"gropingballs",
-		"gropingballsack",
-		"gropringtesticle",
-		"holdballs",
-		"holdballsack",
-		"holdingballs",
-		"holdingballsack",
-		"holdingtesticle",
-		"holdingtesticles",
-		"holdtesticle",
-		"holdtesticles"
-	],
 	"actor":{
 		"info": "the one with the hands",
 		"stimulation":0.1,
