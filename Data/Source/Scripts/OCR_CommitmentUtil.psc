@@ -42,11 +42,14 @@ Faction Property OCR_SocialClass_CitizenNoble Auto
 Faction Property OCR_SocialClass_Other Auto
 Faction Property OCR_SocialClass_SoldierOrGuard Auto
 GlobalVariable Property OCR_Commitment_PlayerIsInExclusiveRelationship  Auto
+GlobalVariable Property OCR_Commitment_PlayerIsInNonexclusiveRelationship  Auto
 Keyword Property OCR_AliasIsFilled  Auto
 Quest Property OCR_Commitment_PlayerIsInExclusiveRelationshipQST Auto
+Quest Property OCR_Commitment_PlayerIsInNonexclusiveRelationshipQST Auto
 Race Property OrcRace Auto
 Race Property OrcRaceVampire Auto
 ReferenceAlias Property ExclusiveRelationshipSubjectAlias  Auto
+ReferenceAlias Property NonexclusiveRelationshipSubjectAlias  Auto
 
 function GetCommitment(actor actor1)
     int actor1Commitment = CalculateNPCCommitment(actor1)
@@ -157,4 +160,21 @@ function UpdateGlobalVariable_PlayerIsInExclusiveRelationship()
         MiscUtil.PrintConsole("UpdateGlobalVariable_PlayerIsInExclusiveRelationship: Detection is that player is not in an exclusive relationship.")
     endif
     OCR_Commitment_PlayerIsInExclusiveRelationshipQST.Stop()
+endfunction
+
+function UpdateGlobalVariable_PlayerIsInNonexclusiveRelationship()
+    ;This function updates the global variable OCR_Commitment_PlayerIsInNonexclusiveRelationship. It is checked in the romance progression of some characters.
+    OCR_Commitment_PlayerIsInNonexclusiveRelationshipQST.Start() ;Fills alias if it exists
+    bool PlayerIsInNonexclusiveRelationship
+    if NonexclusiveRelationshipSubjectAlias.GetActorReference().HasKeyword(OCR_AliasIsFilled) ;This function is aborted on purpose if the alias was not filled
+        PlayerIsInNonexclusiveRelationship = true
+    endif
+    if PlayerIsInNonexclusiveRelationship == true
+        OCR_Commitment_PlayerIsInNonexclusiveRelationship.SetValue(1)
+        MiscUtil.PrintConsole("UpdateGlobalVariable_PlayerIsInNonexclusiveRelationship: Detection is that player is in an nonexclusive relationship.")
+    else
+        OCR_Commitment_PlayerIsInNonexclusiveRelationship.SetValue(0)
+        MiscUtil.PrintConsole("UpdateGlobalVariable_PlayerIsInNonexclusiveRelationship: Detection is that player is not in an nonexclusive relationship.")
+    endif
+    OCR_Commitment_PlayerIsInNonexclusiveRelationshipQST.Stop()
 endfunction
