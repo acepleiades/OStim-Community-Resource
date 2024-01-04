@@ -41,8 +41,12 @@ Faction Property OCR_SocialClass_CitizenMiddle Auto
 Faction Property OCR_SocialClass_CitizenNoble Auto
 Faction Property OCR_SocialClass_Other Auto
 Faction Property OCR_SocialClass_SoldierOrGuard Auto
+GlobalVariable Property OCR_Commitment_PlayerIsInExclusiveRelationship  Auto
+Keyword Property OCR_AliasIsFilled  Auto
+Quest Property OCR_Commitment_PlayerIsInExclusiveRelationshipQST Auto
 Race Property OrcRace Auto
 Race Property OrcRaceVampire Auto
+ReferenceAlias Property ExclusiveRelationshipSubjectAlias  Auto
 
 function GetCommitment(actor actor1)
     int actor1Commitment = CalculateNPCCommitment(actor1)
@@ -137,3 +141,20 @@ function AssignSocialClass(actor actor1)
         endif
     endif
 endFunction
+
+function UpdateGlobalVariable_PlayerIsInExclusiveRelationship()
+    ;This function updates the global variable OCR_Commitment_PlayerIsInExclusiveRelationship. It is checked in the romance progression of some characters.
+    OCR_Commitment_PlayerIsInExclusiveRelationshipQST.Start() ;Fills alias if it exists
+    bool PlayerIsInExclusiveRelationship
+    if ExclusiveRelationshipSubjectAlias.GetActorReference().HasKeyword(OCR_AliasIsFilled) ;This function is aborted on purpose if the alias was not filled
+        PlayerIsInExclusiveRelationship = true
+    endif
+    if PlayerIsInExclusiveRelationship == true
+        OCR_Commitment_PlayerIsInExclusiveRelationship.SetValue(1)
+        MiscUtil.PrintConsole("UpdateGlobalVariable_PlayerIsInExclusiveRelationship: Detection is that player is in an exclusive relationship.")
+    else
+        OCR_Commitment_PlayerIsInExclusiveRelationship.SetValue(0)
+        MiscUtil.PrintConsole("UpdateGlobalVariable_PlayerIsInExclusiveRelationship: Detection is that player is not in an exclusive relationship.")
+    endif
+    OCR_Commitment_PlayerIsInExclusiveRelationshipQST.Stop()
+endfunction
