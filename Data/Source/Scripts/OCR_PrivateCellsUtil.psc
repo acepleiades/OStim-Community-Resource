@@ -37,6 +37,30 @@ ReferenceAlias Property AliasLover8  Auto
 ReferenceAlias Property AliasLover9  Auto
 ReferenceAlias Property InvitedNPC  Auto
 
+function FollowerCamping(actor actor1)
+	;Starts the necessary quests
+    OCR_PrivateCells_FollowerAliases.Start()
+    OCR_PrivateCells_PlayerDialogueQST.Start()
+    ;Adds NPC into the necessary alias
+    InvitedNPC.ForceRefTo(actor1)
+    ;Move the return marker to the player
+    OCR_XMarker_Return.MoveTo(playerref)
+    ;Taking other followers along
+    AliasFollower0.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    AliasFollower1.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    AliasFollower2.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    AliasFollower3.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    AliasFollower4.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    AliasFollower5.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    AliasFollower6.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    AliasFollower7.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    AliasFollower8.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    AliasFollower9.GetActorReference().MoveTo(OCR_XMarker_NPC_Camp)
+    ;Move invited NPC and player into the cell
+    actor1.MoveTo(OCR_XMarker_NPC_Camp)
+    playerref.MoveTo(OCR_XMarker_Player_Camp)
+endfunction
+
 function GoToPrivateCell_Camp(actor actor1)
 	;Starts the necessary quests
     OCR_PrivateCells_FollowerAliases.Start()
