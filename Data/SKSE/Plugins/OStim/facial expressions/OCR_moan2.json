@@ -1,0 +1,43 @@
+{
+    "events": [
+        "OCR_moan"
+    ],
+    "female": {
+        "duration": 0.5,
+        "phonemes": [
+            {
+                "type": 11,
+                "baseValue": 15,
+                "variance": 10,
+                "speedMultiplier": 2,
+                "delay": 0.5,
+                "delayVariance": 0.5
+            },
+            {
+                "type": 5,
+                "baseValue": 0,
+                "variance": 10,
+                "speedMultiplier": 2,
+                "delay": 0.5,
+                "delayVariance": 0.5
+            }
+        ]
+    },
+    "male": {
+        "duration": 0.5,
+        "phonemes": [
+            {
+                "type": 11,
+                "baseValue": 20,
+                "variance": 15,
+                "speedMultiplier": 20
+            },
+            {
+                "type": 5,
+                "baseValue": 5,
+                "variance": 15,
+                "speedMultiplier": 10
+            }
+        ]
+    }
+}
