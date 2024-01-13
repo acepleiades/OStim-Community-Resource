@@ -40,6 +40,7 @@ ReferenceAlias Property InvitedNPC  Auto
 function FollowerCamping(actor actor1)
 	;Starts the necessary quests
     OCR_PrivateCells_FollowerAliases.Start()
+    OCR_PrivateCells_LoverAliases.Start()
     OCR_PrivateCells_PlayerDialogueQST.Start()
     ;Adds NPC into the necessary alias
     InvitedNPC.ForceRefTo(actor1)
