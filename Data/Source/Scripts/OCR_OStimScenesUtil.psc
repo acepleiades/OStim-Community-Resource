@@ -8,6 +8,7 @@ GlobalVariable Property OStimAddActorsAtStart  auto
 Message Property OCR_ScenesUtil_3PPCandidateSelect  Auto
 Message Property OCR_ScenesUtil_3PP  Auto
 Quest Property OCR_OStimScenes_3PPCandidateAliases  Auto
+Quest Property OCR_OStimScenesUtil_RestoreAddActorsAtStart  Auto
 ReferenceAlias Property OCRSceneNPC  Auto
 ReferenceAlias Property ThreePCandidate0  Auto
 ReferenceAlias Property ThreePCandidate1  Auto
@@ -76,8 +77,10 @@ function OCR_StartScene3P(actor actor1, actor actor2, actor actor3)
 endFunction
 
 Function DisableAddActors()
-	;I tried multiple ways to only disable this setting temporarily but it didn't work in game every time
-    OStimAddActorsAtStart.SetValue(0)
+	if OStimAddActorsAtStart.GetValue() == 1
+        OStimAddActorsAtStart.SetValue(0)
+        OCR_OStimScenesUtil_RestoreAddActorsAtStart.Start()
+    endif
 EndFunction
 
 function StartSceneReset()
