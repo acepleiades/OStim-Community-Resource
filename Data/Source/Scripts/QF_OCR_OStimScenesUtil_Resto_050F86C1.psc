@@ -9,7 +9,6 @@ Quest __temp = self as Quest
 OCR_RestoreAddActorsAtStart kmyQuest = __temp as OCR_RestoreAddActorsAtStart
 ;END AUTOCAST
 ;BEGIN CODE
-Debug.Notification("Started quest OCR_OStimScenesUtil_RestoreAddActorsAtStart")
 kmyquest.Restore()
 ;END CODE
 EndFunction
