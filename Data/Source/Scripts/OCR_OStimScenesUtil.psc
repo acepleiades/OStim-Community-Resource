@@ -27,6 +27,7 @@ ReferenceAlias Property ThreePCandidate2  Auto
 ReferenceAlias Property ThreePCandidate3  Auto
 
 Function OCR_StartScene(actor InvitedNPC)
+    OCRSceneNPC.Clear()
     OCRSceneNPC.ForceRefTo(InvitedNPC)
     if InvitedNPC.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
         int iChoice0 = OCR_ScenesUtil_3PP.Show()
