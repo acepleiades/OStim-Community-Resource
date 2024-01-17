@@ -152,11 +152,11 @@ Function InitializeThreePCandidates(ReferenceAlias[] threePCandidates)
     threePCandidates[3] = ThreePCandidate3
 EndFunction
 
-function OCR_StartScene2P(actor actor2)
+function OCR_StartScene2P(actor InvitedNPC)
     DisableAddActors()
     Actor[] actors = new actor[2]
     Actors[0] = PlayerRef
-    Actors[1] = actor2
+    Actors[1] = InvitedNPC
     OThread.QuickStart(Actors)
     StartSceneReset()
 endFunction
