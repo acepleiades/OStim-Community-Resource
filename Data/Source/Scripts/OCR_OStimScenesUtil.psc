@@ -30,8 +30,10 @@ Function OCR_StartScene(actor InvitedNPC)
     OCRSceneNPC.Clear()
     OCRSceneNPC.ForceRefTo(InvitedNPC)
     if InvitedNPC.IsInFaction(OCR_Lover_AcceptsMultiplePartnersFaction)
+        MiscUtil.PrintConsole("OCR_StartScene: Checking 3PP Faction...")
         int iChoice0 = OCR_ScenesUtil_3PP.Show()
         if iChoice0 == 0
+            MiscUtil.PrintConsole("OCR_StartScene: 3PP option selected. Starting Alias...")
             OCR_OStimScenes_3PPCandidateAliases.Start()
             ReferenceAlias[] threePCandidates = new ReferenceAlias[4]
             threePCandidates[0] = ThreePCandidate0
@@ -47,12 +49,14 @@ Function OCR_StartScene(actor InvitedNPC)
                 endif
                 i += 1
             endwhile
+            MiscUtil.PrintConsole("OCR_StartScene: Number of candidates: " + numOfCandidates)
             if numOfCandidates == 0
-                Debug.Notification("No suitable candidates were found.")
+                Debug.Notification("No suitable candidates found.")
+                MiscUtil.PrintConsole("OCR_StartScene: No suitable candidates found. Starting 2P scene...")
                 OCR_StartScene2P(InvitedNPC)
             else
                 OCR_OStimScenes_3PPCandidateAmount.SetValue(numOfCandidates)
-                if numOfCandidates > 1
+                if numOfCandidates >= 1
                     int iChoice1 = OCR_ScenesUtil_3PPHowManyActors.Show()
                     if iChoice1 == 0
                         Select3PCandidate()
@@ -63,14 +67,17 @@ Function OCR_StartScene(actor InvitedNPC)
                     elseif iChoice1 == 3
                         OCR_StartScene6P(PlayerRef, InvitedNPC, ThreePCandidate0.GetActorReference(), ThreePCandidate1.GetActorReference(), ThreePCandidate2.GetActorReference(), ThreePCandidate3.GetActorReference())
                     Else
+                        MiscUtil.PrintConsole("OCR_StartScene: Fallback to 2P scene...")
                         OCR_StartScene2P(InvitedNPC)
                     endif
                 endif
             endif
         else
+            MiscUtil.PrintConsole("OCR_StartScene: Starting 2P scene...")
             OCR_StartScene2P(InvitedNPC)
         endif
     else
+        MiscUtil.PrintConsole("OCR_StartScene: NPC is not in faction 'OCR_Lover_AcceptsMultiplePartnersFaction'. Starting 2P scene...")
         OCR_StartScene2P(InvitedNPC)
     endif
 endFunction
