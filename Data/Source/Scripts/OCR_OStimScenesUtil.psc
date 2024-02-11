@@ -59,11 +59,11 @@ Function OCR_StartScene(actor InvitedNPC)
                 if numOfCandidates >= 1
                     int iChoice1 = OCR_ScenesUtil_3PPHowManyActors.Show()
                     if iChoice1 == 0
-                        Select3PCandidate()
+                        Select3PCandidate(numOfCandidates)
                     elseif iChoice1 == 1
-                        Select4PCandidates()
+                        Select4PCandidates(numOfCandidates)
                     elseif iChoice1 == 2
-                        Select5PCandidates()
+                        Select5PCandidates(numOfCandidates)
                     elseif iChoice1 == 3
                         OCR_StartScene6P(PlayerRef, InvitedNPC, ThreePCandidate0.GetActorReference(), ThreePCandidate1.GetActorReference(), ThreePCandidate2.GetActorReference(), ThreePCandidate3.GetActorReference())
                     Else
@@ -82,11 +82,11 @@ Function OCR_StartScene(actor InvitedNPC)
     endif
 endFunction
 
-Function Select3PCandidate()
+Function Select3PCandidate(int numOfCandidates)
     ReferenceAlias[] threePCandidates = new ReferenceAlias[4]
     InitializeThreePCandidates(threePCandidates)
     int iChoice0 = OCR_ScenesUtil_3PPCandidateSelect.Show()
-    if iChoice0 >= 0
+    if iChoice0 <= numOfCandidates
         actor chosenActor = threePCandidates[iChoice0].GetActorReference()
         OCR_StartScene3P(PlayerRef, OCRSceneNPC.GetActorReference(), chosenActor)
     else
@@ -94,11 +94,11 @@ Function Select3PCandidate()
     endif
 EndFunction
 
-Function Select4PCandidates()
+Function Select4PCandidates(int numOfCandidates)
     ReferenceAlias[] threePCandidates = new ReferenceAlias[4]
     InitializeThreePCandidates(threePCandidates)
     int iChoice0 = OCR_ScenesUtil_3PPCandidateSelect.Show()
-    if iChoice0 >= 0
+    if iChoice0 <= numOfCandidates
         actor chosenActor1 = threePCandidates[iChoice0].GetActorReference()
         chosenActor1.AddToFaction(OCR_OStimScenes_ChosenCandidateFaction)
         OCR_OStimScenes_4PCandidateAliases.Start()
@@ -118,11 +118,11 @@ Function Select4PCandidates()
     endif
 EndFunction
 
-Function Select5PCandidates()
+Function Select5PCandidates(int numOfCandidates)
     ReferenceAlias[] threePCandidates = new ReferenceAlias[4]
     InitializeThreePCandidates(threePCandidates)
     int iChoice0 = OCR_ScenesUtil_3PPCandidateSelect.Show()
-    if iChoice0 >= 0
+    if iChoice0 <= numOfCandidates
         actor chosenActor1 = threePCandidates[iChoice0].GetActorReference()
         chosenActor1.AddToFaction(OCR_OStimScenes_ChosenCandidateFaction)
         OCR_OStimScenes_4PCandidateAliases.Start()
