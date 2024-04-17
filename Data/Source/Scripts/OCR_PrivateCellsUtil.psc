@@ -3,6 +3,7 @@ Scriptname OCR_PrivateCellsUtil extends Quest
 Actor Property PlayerRef Auto
 Armor Property OCR_InvisibleEquipment_Armor  Auto
 Faction Property OCR_Lover_AcceptsMultiplePartnersFaction Auto
+GlobalVariable Property OCR_RomanceProgression_NoMoreInThisInstance  auto
 Message Property OCR_GoToPrivateCell_FollowersMSG  Auto
 Message Property OCR_GoToPrivateCell_LoversMSG  Auto
 MiscObject Property Gold001  Auto
@@ -149,7 +150,7 @@ function GoToPrivateCell_Inn(actor actor1)
 endfunction
 
 function EndVisit()
-    ;Stops and resets whatever is needed
+    OCR_RomanceProgression_NoMoreInThisInstance.SetValue(0)
     OCR_PrivateCells_EndVisit.Stop()
     OCR_PrivateCells_PlayerDialogueQST.Stop()
     actor InvitedActor = InvitedNPC.GetActorReference()
